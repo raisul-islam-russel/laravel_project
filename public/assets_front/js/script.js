@@ -2740,7 +2740,7 @@ if ($('.typed').length > 0) {
 	
 document.addEventListener('DOMContentLoaded', function () {
 	ityped.init(document.querySelector(".typed"), {
-	  strings: ['Carpenders', 'Stylist', 'Builders'],
+	  strings: ['Carpenters', 'Stylist', 'Builders'],
 	  typeSpeed: 150,  // Speed of typing
 	  backSpeed: 80,   // Speed of backspacing
 	  loop: true       // Loops the animation

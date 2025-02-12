@@ -9,3 +9,6 @@ Route::get('/admin', function () {
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/about-us', function () {
+    return view('pages.about');
+});

@@ -16,7 +16,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('assets') }}/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="{{ asset('assets') }}/plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css">
 
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="{{ asset('assets') }}/plugins/fontawesome/css/fontawesome.min.css">
@@ -56,7 +56,7 @@
     <!-- jQuery -->
     <script data-cfasync="false" src="{{ asset('assets') }}/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
     </script>
-    <script src="js/jquery-3.7.1.min.js" type="784f7c8c05cec0d431c94044-text/javascript"></script>
+    <script src="{{ asset('assets') }}/js/jquery-3.7.1.min.js" type="784f7c8c05cec0d431c94044-text/javascript"></script>
 
     <!-- Select 2 JS-->
     <script src="{{asset('assets')}}/js/select2.min.js" type="784f7c8c05cec0d431c94044-text/javascript"></script>

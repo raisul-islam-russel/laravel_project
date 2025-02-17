@@ -198,8 +198,8 @@
                         <span class="animate-circle"></span>
                     </span>
                     <span class="user-content">
-                        <span class="user-name">John Smith</span>
-                        <span class="user-details">Demo User</span>
+                        <span class="user-name">Raisul</span>
+                        <span class="user-details">Admin</span>
                     </span>
                 </a>
                 <div class="dropdown-menu menu-drop-user">
@@ -210,8 +210,8 @@
                                     <img src="assets/img/user.jpg" alt="img" class="profilesidebar">
                                 </span>
                                 <span class="profile-content">
-                                    <span>John Smith</span>
-                                    <span><span class="__cf_email__" data-cfemail="6a200502042a0f120b071a060f44090507">[email&#160;protected]</span></span>
+                                    <span>Raisul</span>
+                                    <span>raisul@example.com</span>
                                 </span>
                             </a>
                         </div>
@@ -226,7 +226,7 @@
                             </ul>
                         </div>
                         <div class="subscription-logout">
-                            <a href="signin.html">Log Out</a>
+                            <a class="mb-0 text-danger" href="{{ url('/logout') }}" target="_blank">Log Out</a>
                         </div>
                     </div>
                 </div>

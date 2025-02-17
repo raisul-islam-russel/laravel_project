@@ -45,4 +45,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    function isAdmin(){
+        return $this->role_id==1;
+    }
+    function isUser(){
+        return $this->role_id==2;
+    }
+    function isProvider(){
+        return $this->role_id==3;
+    }
 }

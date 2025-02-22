@@ -30,7 +30,7 @@
                             <div class="dropdown">
                                 <a href="javascript:void(0);" class="dropdown-toggle bg-light-300 fw-medium"
                                     data-bs-toggle="dropdown">
-                                    <i class="ti ti-layout-grid me-1"></i>Categories
+                                    <i class="ti ti-layout-grid me-1"></i>Service Categories
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="javascript:void(0);">Construction</a></li>
@@ -46,6 +46,7 @@
                     <li><a href="/about-us">About</a></li>
                     <li>
                         <a href="/blog">Blog</a>
+                        <li><a href="/services">Services</a></li>
                         <li><a href="/contact">Contact Us</a></li>
                         <li><a href="/how-it-works">How It Works</a></li>
                         <li><a href="/provider-register">Become a Provider</a></li>
@@ -60,7 +61,7 @@
             </div>
             <ul class="nav header-navbar-rht">
                 <li class="nav-item pe-1">
-                    <a class="nav-link btn btn-light" href="#" data-bs-toggle="modal"
+                    <a class="nav-link btn btn-light" href="{{ route('login') }}" data-bs-toggle="modal"
                         data-bs-target="#login-modal"><i class="ti ti-lock me-2"></i>Sign In</a>
                 </li>
                 <li class="nav-item">

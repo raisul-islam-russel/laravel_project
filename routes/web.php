@@ -27,6 +27,9 @@ require __DIR__.'/auth.php';
 Route::get('/admin', function () {
     return view('admin');
 });
+Route::get('/services', function () {
+    return view('pages.services');
+});
 Route::get('/about-us', function () {
     return view('pages.about');
 });

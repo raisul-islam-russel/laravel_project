@@ -2,11 +2,11 @@
 <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
         <div class="sidebar-logo">
-            <a href="index.html">
-                <img src="assets/img/logo.svg" class="img-fluid logo" alt="Logo">
+            <a href="{{ url('/dashboard') }}">
+                <img src="{{ asset('assets') }}/img/logo.svg" class="img-fluid logo" alt="Logo">
             </a>
-            <a href="index.html">
-                <img src="assets/img/logo-small.svg" class="img-fluid logo-small" alt="Logo">
+            <a href="{{ url('/dashboard') }}">
+                <img src="{{ asset('assets') }}/img/logo-small.svg" class="img-fluid logo-small" alt="Logo">
             </a>
         </div>
         <div class="siderbar-toggle">
@@ -24,7 +24,7 @@
                     <h6>Home</h6>
                 </li>
                 <li>
-                    <a href="index.html" class="active"><i class="fe fe-grid"></i> <span>Dashboard</span></a>
+                    <a href="{{ url('/dashboard') }}" class="active"><i class="fe fe-grid"></i> <span>Dashboard</span></a>
                 </li>
                 <li class="menu-title">
                     <h6>Services</h6>
@@ -39,7 +39,7 @@
                             <a  href="add-service.html">Add Service</a>
                         </li>
                         <li>
-                            <a href="services.html">Services</a>
+                            <a href="{{url('erp/services')}}">Services</a>
                         </li>
                         <li>
                             <a href="service-settings.html">Service Settings</a>

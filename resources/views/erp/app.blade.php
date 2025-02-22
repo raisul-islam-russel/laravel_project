@@ -38,12 +38,12 @@
 <body>
     <div class="main-wrapper">
 
-        @include('backend.header')
+        @include('erp.header')
 
-        @include('backend.sidebar')
+        @include('erp.sidebar')
 
         <div class="page-wrapper">
-            @yield('content')
+            @yield('page')
         </div>
     </div>
 

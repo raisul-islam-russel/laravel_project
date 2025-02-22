@@ -1,11 +1,11 @@
 <!-- Header -->
 <div class="header">
     <div class="header-left"> 
-        <a href="index.html" class="logo">
-            <img src="assets/img/logo.svg" alt="Logo" width="30" height="30">
+        <a href="{{ url('/dashboard') }}" class="logo">
+            <img src="{{ asset('assets') }}/img/logo.svg" alt="Logo" width="30" height="30">
         </a>
-        <a href="index.html" class=" logo-small">
-            <img src="assets/img/logo-small.svg" alt="Logo" width="30" height="30">
+        <a href="{{ url('/dashboard') }}" class=" logo-small">
+            <img src="{{ asset('assets') }}/img/logo-small.svg" alt="Logo" width="30" height="30">
         </a>
     </div>
     <a class="mobile_btn" id="mobile_btn" href="javascript:void(0);">
@@ -25,20 +25,20 @@
             </li>
             <li class="nav-item dropdown has-arrow dropdown-heads flag-nav">
                 <a class="nav-link" data-bs-toggle="dropdown" href="javascript:void(0);" role="button">
-                    <img src="assets/img/flags/us1.png" alt="Flag" height="20"> 
+                    <img src="{{ asset('assets') }}/img/flags/us1.png" alt="Flag" height="20"> 
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a href="javascript:void(0);" class="dropdown-item">
-                        <img src="assets/img/flags/us.png" class="me-2" alt="Flag" height="16"> English
+                        <img src="{{ asset('assets') }}/img/flags/us.png" class="me-2" alt="Flag" height="16"> English
                     </a>
                     <a href="javascript:void(0);" class="dropdown-item">
-                        <img src="assets/img/flags/fr.png" class="me-2" alt="Flag" height="16"> French
+                        <img src="{{ asset('assets') }}/img/flags/fr.png" class="me-2" alt="Flag" height="16"> French
                     </a>
                     <a href="javascript:void(0);" class="dropdown-item">
-                        <img src="assets/img/flags/es.png" class="me-2" alt="Flag" height="16"> Spanish
+                        <img src="{{ asset('assets') }}/img/flags/es.png" class="me-2" alt="Flag" height="16"> Spanish
                     </a>
                     <a href="javascript:void(0);" class="dropdown-item">
-                        <img src="assets/img/flags/de.png" class="me-2" alt="Flag" height="16"> German
+                        <img src="{{ asset('assets') }}/img/flags/de.png" class="me-2" alt="Flag" height="16"> German
                     </a>
                 </div>
             </li>
@@ -62,7 +62,7 @@
                                 <a href="notifications.html">
                                     <div class="media d-flex">
                                         <span class="avatar avatar-sm flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" alt="user" src="assets/img/provider/provider-01.jpg">
+                                            <img class="avatar-img rounded-circle" alt="user" src="{{ asset('assets') }}/img/provider/provider-01.jpg">
                                         </span>
                                         <div class="media-body flex-grow-1">
                                             <p class="noti-details">
@@ -79,7 +79,7 @@
                                 <a href="notifications.html">
                                     <div class="media d-flex">
                                         <span class="avatar avatar-sm flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" alt="user" src="assets/img/provider/provider-02.jpg">
+                                            <img class="avatar-img rounded-circle" alt="user" src="{{ asset('assets') }}/img/provider/provider-02.jpg">
                                         </span>
                                         <div class="media-body flex-grow-1">
                                             <p class="noti-details">
@@ -96,7 +96,7 @@
                                 <a href="notifications.html">
                                     <div class="media d-flex">
                                         <span class="avatar avatar-sm flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" alt="user" src="assets/img/provider/provider-03.jpg">
+                                            <img class="avatar-img rounded-circle" alt="user" src="{{ asset('assets') }}/img/provider/provider-03.jpg">
                                         </span>
                                         <div class="media-body flex-grow-1">
                                             <p class="noti-details">
@@ -113,7 +113,7 @@
                                 <a href="notifications.html">
                                     <div class="media d-flex">
                                         <span class="avatar avatar-sm flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" alt="User Image" src="assets/img/provider/provider-04.jpg">
+                                            <img class="avatar-img rounded-circle" alt="User Image" src="{{ asset('assets') }}/img/provider/provider-04.jpg">
                                         </span>
                                         <div class="media-body flex-grow-1">
                                             <p class="noti-details">
@@ -130,7 +130,7 @@
                                 <a href="notifications.html">
                                     <div class="media d-flex">
                                         <span class="avatar avatar-sm flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" alt="User Image" src="assets/img/provider/provider-05.jpg">
+                                            <img class="avatar-img rounded-circle" alt="User Image" src="{{ asset('assets') }}/img/provider/provider-05.jpg">
                                         </span>
                                         <div class="media-body flex-grow-1">
                                             <p class="noti-details">
@@ -147,7 +147,7 @@
                                 <a href="notifications.html">
                                     <div class="media d-flex">
                                         <span class="avatar avatar-sm flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" alt="User Image" src="assets/img/provider/provider-06.jpg">
+                                            <img class="avatar-img rounded-circle" alt="User Image" src="{{ asset('assets') }}/img/provider/provider-06.jpg">
                                         </span>
                                         <div class="media-body flex-grow-1">
                                             <p class="noti-details">
@@ -164,7 +164,7 @@
                                 <a href="notifications.html">
                                     <div class="media d-flex">
                                         <span class="avatar avatar-sm flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" alt="User Image" src="assets/img/provider/provider-07.jpg">
+                                            <img class="avatar-img rounded-circle" alt="User Image" src="{{ asset('assets') }}/img/provider/provider-07.jpg">
                                         </span>
                                         <div class="media-body flex-grow-1">
                                             <p class="noti-details">
@@ -194,7 +194,7 @@
             <li class="nav-item dropdown">
                 <a href="javascript:void(0)" class="user-link  nav-link" data-bs-toggle="dropdown">
                     <span class="user-img">
-                        <img class="rounded-circle" src="assets/img/user.jpg" width="40" alt="Admin">
+                        <img class="rounded-circle" src="{{ asset('assets') }}/img/user.jpg" width="40" alt="Admin">
                         <span class="animate-circle"></span>
                     </span>
                     <span class="user-content">
@@ -207,7 +207,7 @@
                         <div class="user-detials">
                             <a href="account.html">
                                 <span class="profile-image">
-                                    <img src="assets/img/user.jpg" alt="img" class="profilesidebar">
+                                    <img src="{{ asset('assets') }}/img/user.jpg" alt="img" class="profilesidebar">
                                 </span>
                                 <span class="profile-content">
                                     <span>Raisul</span>

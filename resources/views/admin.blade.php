@@ -1,6 +1,6 @@
-@extends('backend.main')
+@extends('erp.app')
 
-@section('content')
+@section('page')
     <div class="content">
         <div class="row">
             <div class="col-lg-3 col-sm-6 col-12 d-flex widget-path widget-service">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -14,6 +15,14 @@ Route::get('/abc', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+
+Route::resource('/erp/services',ServiceController::class);
+
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -44,6 +53,12 @@ Route::get('/how-it-works', function () {
 });
 Route::get('/provider-register', function () {
     return view('pages.become-provider');
+});
+Route::get('/search', function () {
+    return view('pages.search');
+});
+Route::get('/booking', function () {
+    return view('pages.booking');
 });
 
 

@@ -1,7 +1,15 @@
 <?php
 
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\UserController;
+use App\Models\Provider;
+use App\Models\SubCategory;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -19,6 +27,13 @@ Route::get('/dashboard', function () {
 
 
 Route::resource('/erp/services',ServiceController::class);
+Route::resource('/erp/categories',CategoryController::class);
+Route::resource('/erp/users',UserController::class);
+Route::resource('/erp/customers',CustomerController::class);
+Route::resource('/erp/providers',ProviderController::class);
+Route::resource('/erp/bookings',BookingController::class);
+Route::resource('/erp/subcategorys',SubCategoryController::class);
+
 
 
 

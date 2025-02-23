@@ -72,7 +72,7 @@
                     <div class="col-xl-3 col-lg-4 theiaStickySidebar">
 						<div class="card mb-4 mb-lg-0">
 							<div class="card-body">
-								<form action="https://truelysell.dreamstechnologies.com/html/template/search.html">
+								<form action="{{url('/search')}}">
 									<div class="d-flex align-items-center justify-content-between mb-3 pb-3 border-bottom">
 										<h5><i class="ti ti-filter-check me-2"></i>Filters</h5>
 										<a href="javascript:void(0);">Reset Filter</a>
@@ -303,7 +303,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$25.00 <span class="fs-13 text-gray"><del>$30.00/hr</del></span></h5>
-												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
+												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -332,7 +332,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$20.00 <span class="fs-13 text-gray"><del>$25.00/hr</del></span></h5>
-												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
+												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -361,7 +361,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$20.00 <span class="fs-13 text-gray"><del>$35.00/hr</del></span></h5>
-												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
+												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -390,7 +390,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$30.00 <span class="fs-13 text-gray"><del>$35.00/hr</del></span></h5>
-												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
+												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -419,7 +419,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$20.00 <span class="fs-13 text-gray"><del>$25.00/hr</del></span></h5>
-												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
+												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -448,7 +448,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$40.00 <span class="fs-13 text-gray"><del>$45.00/hr</del></span></h5>
-												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
+												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -477,7 +477,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$45.00 <span class="fs-13 text-gray"><del>$50.00/hr</del></span></h5>
-												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
+												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -506,7 +506,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$40.00 <span class="fs-13 text-gray"><del>$45.00/hr</del></span></h5>
-												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
+												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -535,7 +535,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$20.00 <span class="fs-13 text-gray"><del>$25.00/hr</del></span></h5>
-												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
+												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -564,7 +564,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$50.00 <span class="fs-13 text-gray"><del>$55.00/hr</del></span></h5>
-												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
+												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -593,7 +593,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$45.00 <span class="fs-13 text-gray"><del>$50.00/hr</del></span></h5>
-												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
+												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -622,7 +622,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$25.00 <span class="fs-13 text-gray"><del>$30.00/hr</del></span></h5>
-												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
+												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>

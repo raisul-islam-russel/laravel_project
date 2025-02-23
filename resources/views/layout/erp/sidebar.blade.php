@@ -36,23 +36,23 @@
                     </a>
                     <ul>
                         <li>
-                            <a  href="add-service.html">Add Service</a>
+                            <a  href="{{url('erp/services/create')}}">Add Service</a>
                         </li>
                         <li>
                             <a href="{{url('erp/services')}}">Services</a>
                         </li>
                         <li>
-                            <a href="service-settings.html">Service Settings</a>
+                            <a href="{{url('erp/services')}}">Service Settings</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="categories.html"><i class="fe fe-file-text"></i> 
+                    <a href="{{url('erp/categories')}}"><i class="fe fe-file-text"></i> 
                         <span>Categories</span>
                     </a>
                 </li>
                 <li>
-                    <a href="sub-categories.html"><i class="fe fe-clipboard"></i> <span>Sub Categories</span></a>
+                    <a href="{{url('erp/subcategorys')}}"><i class="fe fe-clipboard"></i> <span>Sub Categories</span></a>
                 </li>
                 <li class="submenu">
                     <a href="javascript:void(0);"><i class="fe fe-star"></i> 
@@ -64,7 +64,7 @@
                             <a href="review-type.html">Review Type</a>
                         </li>
                         <li>
-                            <a href="review.html">Review</a>
+                            <a href="{{url('erp/reviews')}}">Review</a>
                         </li>
                     </ul>
                 </li>
@@ -72,7 +72,7 @@
                     <h6>Booking</h6>
                 </li>
                 <li>
-                    <a href="booking.html"><i class="fe fe-smartphone"></i> <span> Bookings</span></a>
+                    <a href="{{url('erp/bookings')}}"><i class="fe fe-smartphone"></i> <span> Bookings</span></a>
                 </li>
                 <li class="menu-title">
                     <h6>Finance & Accounts</h6>
@@ -246,13 +246,13 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="users.html">Users</a>
+                            <a href="{{url('erp/users')}}">Users</a>
                         </li>
                         <li>
-                            <a href="customers.html">Customers</a>
+                            <a href="{{url('erp/customers')}}">Customers</a>
                         </li>
                         <li>
-                            <a href="providers.html">Providers </a>
+                            <a href="{{url('erp/providers')}}">Providers </a>
                         </li> 
                     </ul>
                 </li>

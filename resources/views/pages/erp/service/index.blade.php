@@ -7,7 +7,7 @@
 * Contact: towhid1@outlook.com
 */
 ?>
-@extends('erp.app')
+@extends('layout.erp.app')
 @section('title','Manage Service')
 @section('style')
 

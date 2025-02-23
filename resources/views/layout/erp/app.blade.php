@@ -38,9 +38,9 @@
 <body>
     <div class="main-wrapper">
 
-        @include('erp.header')
+        @include('layout.erp.header')
 
-        @include('erp.sidebar')
+        @include('layout.erp.sidebar')
 
         <div class="page-wrapper">
             @yield('page')

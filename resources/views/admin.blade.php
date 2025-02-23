@@ -1,4 +1,4 @@
-@extends('erp.app')
+@extends('layout.erp.app')
 
 @section('page')
     <div class="content">

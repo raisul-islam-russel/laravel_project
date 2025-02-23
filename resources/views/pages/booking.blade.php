@@ -34,7 +34,7 @@
 <body class="booking-page">
 	
 	<!-- Header -->
-    @include('layouts.frontend.header')
+    @include('frontend.header')
 	<!-- /Header -->
 
 	<!-- Page Wrapper -->

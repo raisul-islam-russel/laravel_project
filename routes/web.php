@@ -76,6 +76,9 @@ Route::get('/booking', function () {
     return view('pages.booking');
 });
 
+Route::get('/invoice',[CustomerController::class,'invoice',]);
+Route::post('find_customer', [BookingController::class, 'find_customer']);
+
 
 
 Route::get('/', function () {

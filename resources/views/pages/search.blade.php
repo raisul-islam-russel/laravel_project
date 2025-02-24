@@ -67,7 +67,7 @@
     <!-- Page Wrapper -->
      <div class="page-wrapper">
         <div class="content">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-xl-3 col-lg-4 theiaStickySidebar">
 						<div class="card mb-4 mb-lg-0">

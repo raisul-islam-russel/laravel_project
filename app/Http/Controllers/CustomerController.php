@@ -9,7 +9,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
-
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
@@ -18,6 +18,11 @@ class CustomerController extends Controller{
 	public function index(){
 		$customers = Customer::paginate(10);
 		return view("pages.erp.customer.index",["customers"=>$customers]);
+	}
+	public function invoice(){
+		$customers = Customer:: all();
+		$services = Service:: all();
+		return view("pages.invoice", compact('customers','services'));
 	}
 	public function create(){
 		return view("pages.erp.customer.create",[]);
@@ -72,6 +77,10 @@ date_default_timezone_set("Asia/Dhaka");
 	public function destroy(Customer $customer){
 		$customer->delete();
 		return redirect()->route("customers.index")->with('success', 'Deleted Successfully.');
+	}
+	public function find_customer($id){
+		$customer = Customer::find($id);
+		return response()->json(['customer'=> $customer]);
 	}
 }
 ?>

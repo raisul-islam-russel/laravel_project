@@ -9,7 +9,8 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
-
+use App\Models\Customer;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +21,14 @@ class BookingController extends Controller{
 		return view("pages.erp.booking.index",["bookings"=>$bookings]);
 	}
 	public function create(){
-		return view("pages.erp.booking.create",[]);
+		return view("pages.erp.booking.create",[
+			
+				"customers"=>Customer::all(),
+				"service"=> Service::all(),
+				
+		   
+				
+		]);
 	}
 	public function store(Request $request){
 		//Booking::create($request->all());
@@ -65,5 +73,14 @@ class BookingController extends Controller{
 		$booking->delete();
 		return redirect()->route("bookings.index")->with('success', 'Deleted Successfully.');
 	}
+	public function find_customer(Request $request){
+		$customer = Customer::find($request->id);
+		return response()->json(['customer'=> $customer]);
+	}
+	public function find_service(Request $request){
+		$service = Service::find($request->id);
+		return response()->json(['product'=> $service]);
+	}
+	
 }
 ?>

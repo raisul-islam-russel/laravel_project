@@ -23,6 +23,7 @@ class ServiceController extends Controller{
 	public function create(){
 		return view("pages.erp.service.create",[]);
 	}
+
 	public function store(Request $request){
 		//Service::create($request->all());
 		$service = new Service;
@@ -63,6 +64,10 @@ class ServiceController extends Controller{
 	public function destroy(Service $service){
 		$service->delete();
 		return redirect()->route("services.index")->with('success', 'Deleted Successfully.');
+	}
+	public function find_service($id){
+		$service = Service::find($id);
+		return response()->json(['service'=> $service]);
 	}
 }
 ?>

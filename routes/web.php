@@ -78,12 +78,15 @@ Route::get('/booking', function () {
 
 Route::get('/invoice',[CustomerController::class,'invoice',]);
 Route::post('find_customer', [BookingController::class, 'find_customer']);
+Route::get('/search', [ServiceController::class, 'frontServicePage', 'services']);
+
 
 
 
 Route::get('/', function () {
     return view('index');
 });
+
 
 
 

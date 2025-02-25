@@ -57,7 +57,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".25s">
-                            <h1 class="mb-2">Connect with Nearby Top-rated Professional <span class="typed"
+                            <h1 class="mb-2">High Quality Services <br> Top-rated Professional <br> <span class="typed"
                                     data-type-text="Carpenters"></span></h1>
                             <p class="mb-3 sub-title">We can connect you to the right Service, first time and every
                                 time.</p>

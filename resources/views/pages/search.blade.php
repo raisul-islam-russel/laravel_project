@@ -65,14 +65,14 @@
 	<!-- /Breadcrumb -->
 
     <!-- Page Wrapper -->
-     <div class="page-wrapper">
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xl-3 col-lg-4 theiaStickySidebar">
+	<div class="page-wrapper">
+		<div class="content">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-3 col-lg-4 theiaStickySidebar">
 						<div class="card mb-4 mb-lg-0">
 							<div class="card-body">
-								<form action="{{url('/search')}}">
+								<form action="https://truelysell.dreamstechnologies.com/html/template/search.html">
 									<div class="d-flex align-items-center justify-content-between mb-3 pb-3 border-bottom">
 										<h5><i class="ti ti-filter-check me-2"></i>Filters</h5>
 										<a href="javascript:void(0);">Reset Filter</a>
@@ -263,7 +263,7 @@
 					</div>
 					<div class="col-xl-9 col-lg-8">
 						<div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
-							<h4 >Found <span class="text-primary">11 Services</span></h4>
+							<h4 >Found <span class="text-primary">12 Services</span></h4>
 							<div class="d-flex align-items-center">
 								<span class="text-dark me-2">Sort</span>
 								<div class="dropdown me-2">
@@ -280,46 +280,62 @@
 							</div>
 						</div>
 						<div class="row justify-content-center align-items-center">
-							<div class="col-xl-4 col-md-6">
+	
+	
+							 @forelse ( $services as  $service)
+							 <div class="col-xl-4 col-md-6">
 								<div class="card p-0">
 									<div class="card-body p-0">
 										<div class="img-sec w-100">
-											<a href="service-details.html"><img src="{{ asset('assets_front') }}/img/providers/provider-13.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
+											<a href="service-details.html"><img src="{{asset('assets_front')}}/img/services/{{$service->service_img}}" class="img-fluid rounded-top w-100" alt="img"></a>
 											<div class="image-tag d-flex justify-content-end align-items-center">
-												<span class="trend-tag">Car Wash</span>
+												<span class="trend-tag">{{$service->category->name}}</span>
 												<a href="javascript:void(0);" class="fav-icon like-icon"><i class="ti ti-heart"></i></a>
 											</div>
 											<span class="image-logo avatar avatar-md border rounded-circle">
-												<img src="{{ asset('assets_front') }}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
+												<img src="{{asset('assets_front')}}/img/providers/{{$service->provider_img}}" class="img-fluid rounded-circle " alt="logo">
 											</span>
 										</div>
 										<div class="p-3">
 											<h5 class="mb-2">
-												<a href="service-details.html">Car Repair Service</a>
+												<a href="service-details.html">{{$service->title}}</a>
 											</h5>
 											<div class="d-flex justify-content-between align-items-center mb-3">
-												<p class="fs-14 mb-0"><i class="ti ti-map-pin me-2"></i>Maryland City, MD, USA</p>
-												<span class="rating text-gray fs-14"><i class="fa fa-star filled me-1"></i>4.9</span>
+												<p class="fs-14 mb-0"><i class="ti ti-map-pin me-2"></i>{{$service->provider->address}}</p>
+												<span class="rating text-gray fs-14"><i class="fa fa-star filled me-1"></i>{{ optional($service->review)->rating ?? 4.9}}</span>
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
-												<h5>$25.00 <span class="fs-13 text-gray"><del>$30.00/hr</del></span></h5>
-												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
+												<h5>{{$service->price}} <span class="fs-13 text-gray"><del>{{$service->price}}/hr</del></span></h5>
+												<a href="" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-xl-4 col-md-6">
+							 @empty
+	
+							 <div class="col-xl-4 col-md-6">
+								<div class="card p-0">
+									<div class="card-body p-0">
+										<p>Data not Found</p> 
+									</div>
+									</div>
+									</div>
+								 
+							 @endforelse
+	
+							
+							{{-- <div class="col-xl-4 col-md-6">
 								<div class="card p-0">
 									<div class="card-body p-0">
 										<div class="img-sec w-100">
-											<a href="service-details.html"><img src="{{ asset('assets_front') }}/img/providers/provider-14.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
+											<a href="service-details.html"><img src="{{asset('assets_front')}}/img/providers/provider-14.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
 											<div class="image-tag d-flex justify-content-end align-items-center">
 												<span class="trend-tag">Construction</span>
 												<a href="javascript:void(0);" class="fav-icon like-icon"><i class="ti ti-heart"></i></a>
 											</div>
 											<span class="image-logo avatar avatar-md border rounded-circle">
-												<img src="{{ asset('assets_front') }}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
+												<img src="{{asset('assets_front')}}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
 											</span>
 										</div>
 										<div class="p-3">
@@ -332,7 +348,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$20.00 <span class="fs-13 text-gray"><del>$25.00/hr</del></span></h5>
-												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
+												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -342,13 +358,13 @@
 								<div class="card p-0">
 									<div class="card-body p-0">
 										<div class="img-sec w-100">
-											<a href="service-details.html"><img src="{{ asset('assets_front') }}/img/providers/provider-15.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
+											<a href="service-details.html"><img src="{{asset('assets_front')}}/img/providers/provider-15.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
 											<div class="image-tag d-flex justify-content-end align-items-center">
 												<span class="trend-tag">Computer</span>
 												<a href="javascript:void(0);" class="fav-icon like-icon"><i class="ti ti-heart"></i></a>
 											</div>
 											<span class="image-logo avatar avatar-md border rounded-circle">
-												<img src="{{ asset('assets_front') }}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
+												<img src="{{asset('assets_front')}}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
 											</span>
 										</div>
 										<div class="p-3">
@@ -361,7 +377,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$20.00 <span class="fs-13 text-gray"><del>$35.00/hr</del></span></h5>
-												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
+												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -371,13 +387,13 @@
 								<div class="card p-0">
 									<div class="card-body p-0">
 										<div class="img-sec w-100">
-											<a href="service-details.html"><img src="{{ asset('assets_front') }}/img/providers/provider-16.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
+											<a href="service-details.html"><img src="{{asset('assets_front')}}/img/providers/provider-16.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
 											<div class="image-tag d-flex justify-content-end align-items-center">
 												<span class="trend-tag">Interior</span>
 												<a href="javascript:void(0);" class="fav-icon like-icon"><i class="ti ti-heart"></i></a>
 											</div>
 											<span class="image-logo avatar avatar-md border rounded-circle">
-												<img src="{{ asset('assets_front') }}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
+												<img src="{{asset('assets_front')}}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
 											</span>
 										</div>
 										<div class="p-3">
@@ -390,7 +406,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$30.00 <span class="fs-13 text-gray"><del>$35.00/hr</del></span></h5>
-												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
+												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -400,13 +416,13 @@
 								<div class="card p-0">
 									<div class="card-body p-0">
 										<div class="img-sec w-100">
-											<a href="service-details.html"><img src="{{ asset('assets_front') }}/img/providers/provider-17.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
+											<a href="service-details.html"><img src="{{asset('assets_front')}}/img/providers/provider-17.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
 											<div class="image-tag d-flex justify-content-end align-items-center">
 												<span class="trend-tag">Car Wash</span>
 												<a href="javascript:void(0);" class="fav-icon like-icon"><i class="ti ti-heart"></i></a>
 											</div>
 											<span class="image-logo avatar avatar-md border rounded-circle">
-												<img src="{{ asset('assets_front') }}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
+												<img src="{{asset('assets_front')}}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
 											</span>
 										</div>
 										<div class="p-3">
@@ -419,7 +435,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$20.00 <span class="fs-13 text-gray"><del>$25.00/hr</del></span></h5>
-												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
+												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -429,13 +445,13 @@
 								<div class="card p-0">
 									<div class="card-body p-0">
 										<div class="img-sec w-100">
-											<a href="service-details.html"><img src="{{ asset('assets_front') }}/img/providers/provider-18.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
+											<a href="service-details.html"><img src="{{asset('assets_front')}}/img/providers/provider-18.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
 											<div class="image-tag d-flex justify-content-end align-items-center">
 												<span class="trend-tag">Electrical</span>
 												<a href="javascript:void(0);" class="fav-icon like-icon"><i class="ti ti-heart"></i></a>
 											</div>
 											<span class="image-logo avatar avatar-md border rounded-circle">
-												<img src="{{ asset('assets_front') }}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
+												<img src="{{asset('assets_front')}}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
 											</span>
 										</div>
 										<div class="p-3">
@@ -448,7 +464,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$40.00 <span class="fs-13 text-gray"><del>$45.00/hr</del></span></h5>
-												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
+												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -458,13 +474,13 @@
 								<div class="card p-0">
 									<div class="card-body p-0">
 										<div class="img-sec w-100">
-											<a href="service-details.html"><img src="{{ asset('assets_front') }}/img/providers/provider-19.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
+											<a href="service-details.html"><img src="{{asset('assets_front')}}/img/providers/provider-19.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
 											<div class="image-tag d-flex justify-content-end align-items-center">
 												<span class="trend-tag">Cleaning</span>
 												<a href="javascript:void(0);" class="fav-icon like-icon"><i class="ti ti-heart"></i></a>
 											</div>
 											<span class="image-logo avatar avatar-md border rounded-circle">
-												<img src="{{ asset('assets_front') }}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
+												<img src="{{asset('assets_front')}}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
 											</span>
 										</div>
 										<div class="p-3">
@@ -477,7 +493,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$45.00 <span class="fs-13 text-gray"><del>$50.00/hr</del></span></h5>
-												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
+												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -487,13 +503,13 @@
 								<div class="card p-0">
 									<div class="card-body p-0">
 										<div class="img-sec w-100">
-											<a href="service-details.html"><img src="{{ asset('assets_front') }}/img/providers/provider-20.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
+											<a href="service-details.html"><img src="{{asset('assets_front')}}/img/providers/provider-20.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
 											<div class="image-tag d-flex justify-content-end align-items-center">
 												<span class="trend-tag">Construction</span>
 												<a href="javascript:void(0);" class="fav-icon like-icon"><i class="ti ti-heart"></i></a>
 											</div>
 											<span class="image-logo avatar avatar-md border rounded-circle">
-												<img src="{{ asset('assets_front') }}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
+												<img src="{{asset('assets_front')}}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
 											</span>
 										</div>
 										<div class="p-3">
@@ -506,7 +522,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$40.00 <span class="fs-13 text-gray"><del>$45.00/hr</del></span></h5>
-												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
+												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -516,13 +532,13 @@
 								<div class="card p-0">
 									<div class="card-body p-0">
 										<div class="img-sec w-100">
-											<a href="service-details.html"><img src="{{ asset('assets_front') }}/img/providers/provider-21.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
+											<a href="service-details.html"><img src="{{asset('assets_front')}}/img/providers/provider-21.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
 											<div class="image-tag d-flex justify-content-end align-items-center">
 												<span class="trend-tag">Appliance</span>
 												<a href="javascript:void(0);" class="fav-icon like-icon"><i class="ti ti-heart"></i></a>
 											</div>
 											<span class="image-logo avatar avatar-md border rounded-circle">
-												<img src="{{ asset('assets_front') }}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
+												<img src="{{asset('assets_front')}}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
 											</span>
 										</div>
 										<div class="p-3">
@@ -535,7 +551,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$20.00 <span class="fs-13 text-gray"><del>$25.00/hr</del></span></h5>
-												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
+												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -545,13 +561,13 @@
 								<div class="card p-0">
 									<div class="card-body p-0">
 										<div class="img-sec w-100">
-											<a href="service-details.html"><img src="{{ asset('assets_front') }}/img/providers/provider-22.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
+											<a href="service-details.html"><img src="{{asset('assets_front')}}/img/providers/provider-22.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
 											<div class="image-tag d-flex justify-content-end align-items-center">
 												<span class="trend-tag">Construction</span>
 												<a href="javascript:void(0);" class="fav-icon like-icon"><i class="ti ti-heart"></i></a>
 											</div>
 											<span class="image-logo avatar avatar-md border rounded-circle">
-												<img src="{{ asset('assets_front') }}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
+												<img src="{{asset('assets_front')}}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
 											</span>
 										</div>
 										<div class="p-3">
@@ -564,7 +580,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$50.00 <span class="fs-13 text-gray"><del>$55.00/hr</del></span></h5>
-												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
+												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -574,13 +590,13 @@
 								<div class="card p-0">
 									<div class="card-body p-0">
 										<div class="img-sec w-100">
-											<a href="service-details.html"><img src="{{ asset('assets_front') }}/img/providers/provider-23.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
+											<a href="service-details.html"><img src="{{asset('assets_front')}}/img/providers/provider-23.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
 											<div class="image-tag d-flex justify-content-end align-items-center">
 												<span class="trend-tag">Plumber</span>
 												<a href="javascript:void(0);" class="fav-icon like-icon"><i class="ti ti-heart"></i></a>
 											</div>
 											<span class="image-logo avatar avatar-md border rounded-circle">
-												<img src="{{ asset('assets_front') }}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
+												<img src="{{asset('assets_front')}}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
 											</span>
 										</div>
 										<div class="p-3">
@@ -593,7 +609,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$45.00 <span class="fs-13 text-gray"><del>$50.00/hr</del></span></h5>
-												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
+												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
@@ -603,13 +619,13 @@
 								<div class="card p-0">
 									<div class="card-body p-0">
 										<div class="img-sec w-100">
-											<a href="service-details.html"><img src="{{ asset('assets_front') }}/img/providers/provider-24.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
+											<a href="service-details.html"><img src="{{asset('assets_front')}}/img/providers/provider-24.jpg" class="img-fluid rounded-top w-100" alt="img"></a>
 											<div class="image-tag d-flex justify-content-end align-items-center">
 												<span class="trend-tag">Carpentry</span>
 												<a href="javascript:void(0);" class="fav-icon like-icon"><i class="ti ti-heart"></i></a>
 											</div>
 											<span class="image-logo avatar avatar-md border rounded-circle">
-												<img src="{{ asset('assets_front') }}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
+												<img src="{{asset('assets_front')}}/img/providers/provider-01.jpg" class="img-fluid rounded-circle " alt="logo">
 											</span>
 										</div>
 										<div class="p-3">
@@ -622,12 +638,12 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>$25.00 <span class="fs-13 text-gray"><del>$30.00/hr</del></span></h5>
-												<a href="/booking" class="btn bg-primary-transparent">Book Now</a>
+												<a href="booking.html" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 						</div>
 						<nav aria-label="Page navigation">
 							<ul class="paginations d-flex justify-content-center align-items-center">
@@ -643,10 +659,10 @@
 							</ul>
 						  </nav>
 					</div>
-                </div>
-            </div>
-        </div>
-     </div>
+				</div>
+			</div>
+		</div>
+	 </div>
      <!-- /Page Wrapper -->
 
     <!-- Footer -->

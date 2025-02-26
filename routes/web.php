@@ -69,16 +69,19 @@ Route::get('/how-it-works', function () {
 Route::get('/provider-register', function () {
     return view('pages.become-provider');
 });
-Route::get('/search', function () {
-    return view('pages.search');
-});
+// Route::get('/search', function () {
+//     return view('pages.search');
+// });
 Route::get('/booking', function () {
     return view('pages.booking');
 });
 
 Route::get('/invoice',[CustomerController::class,'invoice',]);
 Route::post('find_customer', [BookingController::class, 'find_customer']);
-Route::get('/search', [ServiceController::class, 'frontServicePage', 'services']);
+// Route::get('/search', [ServiceController::class, 'frontServicePage', 'services']);
+Route::get('/search', [ServiceController::class, 'frontServicePage']);
+Route::get('/booking', [ProviderController::class, 'bookingProviderPage']);
+
 
 
 

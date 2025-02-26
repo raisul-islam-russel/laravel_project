@@ -9,7 +9,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Provider;
-
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
@@ -66,6 +66,16 @@ date_default_timezone_set("Asia/Dhaka");
 	public function destroy(Provider $provider){
 		$provider->delete();
 		return redirect()->route("providers.index")->with('success', 'Deleted Successfully.');
+	}
+	function bookingProviderPage(Request $request){
+
+        $providers= Provider::paginate(12);
+
+		$service= Service::find($request->service_id);
+
+		// print_r(  $service);
+
+		return view('pages.booking', compact('providers', 'service'));
 	}
 }
 ?>

@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>Truelysell - Service Marketplace Template</title>
+	<title>Local Service Marketplace Template</title>
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets_front') }}/img/favicon.svg">
@@ -29,6 +29,9 @@
 
 	<!-- Style CSS -->
 	<link rel="stylesheet" href="{{ asset('assets_front') }}/css/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	<script src="{{asset('assets_front')}}/js/script.js" type="cddfb10be43f6301e69de11d-text/javascript"></script>
 </head>
 	
 <body class="booking-page">
@@ -39,8 +42,8 @@
 
 	<!-- Page Wrapper -->
 	<div class="page-wrapper">
-		<div class="content">
-			<div class="container">
+		<div class="content-fluid">
+			<div class="container-fluid">
 
 				<!-- Booking -->
 				<div class="row">
@@ -56,39 +59,39 @@
 												<h6 class="text-white fs-14 mb-2">Service Details</h6>
 												<div class="service-info d-flex align-items-center">
 													<span class="avatar avatar-md me-2 flex-shrink-0">
-														<img src="{{ asset('assets_front') }}/img/services/service-02.jpg" alt="img">
+														<img src="{{ asset('assets_front') }}/img/services/{{ $service->service_img }}" alt="img">
 													</span>
 													<div>
-														<p class="fs-12 text-white fw-medium mb-1">Spark Services</p>
+														<p class="fs-12 text-white fw-medium mb-1">{{ $service->title }}</p>
 														<span class="fs-10"><i class="ti ti-star-filled text-warning me-1"></i>4.9 (255 reviews)</span>
 													</div>
 												</div>
 												<div class="booking-wizard">
 													<h6 class="text-white fs-14 mb-3">Bookings</h6>
 													<ul class="wizard-progress" id="bokingwizard">
-														<li class="active pb-3">
+														{{-- <li class="active pb-3">
 															<span>1. Location</span>
+														</li> --}}
+														<li class=" active pb-3">
+															<span>1. Providers</span>															
 														</li>
 														<li class="pb-3">
-															<span>2. Staffs</span>															
+															<span>2. Additional Services</span>															
 														</li>
 														<li class="pb-3">
-															<span>3. Additional Services</span>															
+															<span>3. Date & Time</span>															
 														</li>
 														<li class="pb-3">
-															<span>4. Date & Time</span>															
+															<span>4. Personal Information</span>															
 														</li>
 														<li class="pb-3">
-															<span>5. Personal Information</span>															
+															<span>5. Cart</span>	
 														</li>
 														<li class="pb-3">
-															<span>6. Cart</span>	
-														</li>
-														<li class="pb-3">
-															<span>7. Payment</span>																
+															<span>6. Payment</span>																
 														</li>
 														<li>
-															<span>8. Confirmation</span>
+															<span>7. Confirmation</span>
 														</li>
 													</ul>
 												</div>
@@ -107,7 +110,7 @@
 									<div class="col-lg-9">
 
 										<!-- Location -->
-										<fieldset class="booking-content"  id="first-field">
+										 {{-- <fieldset class="booking-content"  id="first-field">
 											<div class="book-card">
 												<div class="d-flex align-items-center justify-content-between flex-wrap booking-title">
 													<div class="d-flex align-items-center mb-2">
@@ -262,15 +265,15 @@
 											<div class="booking-footer d-flex align-items-center justify-content-end">
 												<a href="javascript:void(0);" class="btn btn-sm btn-dark d-inline-flex align-items-center next_btn">Next<i class="ti ti-arrow-right ms-1"></i></a>
 											</div>
-										</fieldset>
+										</fieldset>  --}}
 										<!-- /Location -->
 
 										<!-- Staffs -->
-										<fieldset class="booking-content">
+										<fieldset class="booking-content" id="first-field">
 											<div class="book-card">
 												<div class="d-flex align-items-center justify-content-between flex-wrap booking-title">
 													<div class="d-flex align-items-center mb-2">
-														<h6 class="fs-16 me-2 mb-2">Select Staffs</h6>
+														<h6 class="fs-16 me-2 mb-2">Select Provider</h6>
 														<span class="badge badge-info-transparent mb-2">Total : 09</span>
 													</div>
 													<div class="d-flex align-items-center mb-2">
@@ -333,14 +336,15 @@
 													</div>
 												</div>
 												<div class="row g-3">
+													@foreach ($providers as $provider)
 													<div class="col-lg-4 col-md-6">
 														<div class="card staff-card mb-0">
 															<div class="card-body p-3 text-center">
 																<span class="avatar avatar-lg mx-auto mb-2">
-																	<img src="{{ asset('assets_front') }}/img/profiles/avatar-01.jpg" alt="img">
+																	<img src="{{ asset('assets_front') }}/img/providers/{{ $provider->provider_img }}" alt="img">
 																</span>
-																<h6 class="mb-2 fw-medium">Jeff Fitch</h6>
-																<p class="mb-2"><a href="https://truelysell.dreamstechnologies.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="02646b766a616a36343542677a636f726e672c616d6f">[email&#160;protected]</a></p>
+																<h6 class="mb-2 fw-medium">{{ $provider->business_name}}</h6>
+																<p class="mb-2"><a href="https://truelysell.dreamstechnologies.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="02646b766a616a36343542677a636f726e672c616d6f">{{ $provider->address }}</a></p>
 																<div class="d-flex align-items-center justify-content-between border-top pt-2">
 																	<p class="mb-0 d-flex align-items-center"><i class="ti ti-circle-check-filled text-danger fs-5 me-1"></i>08 Servicess</p>
 																	<p class="mb-0 d-flex align-items-center"><i class="ti ti-star-filled text-warning me-1"></i>4.9</p>
@@ -348,7 +352,8 @@
 															</div>
 														</div>
 													</div>
-													<div class="col-lg-4 col-md-6">
+													@endforeach
+													{{-- <div class="col-lg-4 col-md-6">
 														<div class="card staff-card mb-0">
 															<div class="card-body p-3 text-center">
 																<span class="avatar avatar-lg mx-auto mb-2">
@@ -467,7 +472,7 @@
 																</div>
 															</div>
 														</div>
-													</div>
+													</div> --}}
 												</div>
 											</div>
 											<div class="booking-footer d-flex align-items-center justify-content-between flex-wrap">
@@ -478,7 +483,7 @@
 													</label>
 												</div>
 												<div class="d-flex align-items-center">
-													<a href="javascript:void(0);" class="btn btn-sm btn-light d-inline-flex align-items-center prev_btn me-2"><i class="ti ti-arrow-left me-1"></i>Prev</a>
+													{{-- <a href="javascript:void(0);" class="btn btn-sm btn-light d-inline-flex align-items-center prev_btn me-2"><i class="ti ti-arrow-left me-1"></i>Prev</a> --}}
 													<a href="javascript:void(0);" class="btn btn-sm btn-dark d-inline-flex align-items-center next_btn">Next<i class="ti ti-arrow-right ms-1"></i></a>
 												</div>
 											</div>
@@ -1389,7 +1394,7 @@
 	<!-- /Cursor -->
 
 	<!-- Jquery JS -->
-	<script data-cfasync="false" src="{{ asset('assets') }}/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="{{ asset('assets_front') }}/js/jquery-3.7.1.min.js" type="cddfb10be43f6301e69de11d-text/javascript"></script>
+	<script data-cfasync="false" src="{{ asset('assets')}}/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="{{ asset('assets_front') }}/js/jquery-3.7.1.min.js" type="cddfb10be43f6301e69de11d-text/javascript"></script>
 
 	<!-- Bootstrap JS -->
 	<script src="{{ asset('assets_front') }}/js/bootstrap.bundle.min.js" type="cddfb10be43f6301e69de11d-text/javascript"></script>
@@ -1406,9 +1411,9 @@
 	<script src="{{ asset('assets_front') }}/js/cursor.js" type="cddfb10be43f6301e69de11d-text/javascript"></script>
 	
 	<!-- Script JS -->
-	<script src="{{ asset('assets_front') }}/js/script.js" type="cddfb10be43f6301e69de11d-text/javascript"></script>
 	
-<script src="../../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="cddfb10be43f6301e69de11d-|49" defer></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"90bf487ee83f786e","version":"2025.1.0","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"3ca157e612a14eccbb30cf6db6691c29","b":1}' crossorigin="anonymous"></script>
+	
+<script src="{{ asset('assets')}}/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="cddfb10be43f6301e69de11d-|49" defer></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"90bf487ee83f786e","version":"2025.1.0","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"3ca157e612a14eccbb30cf6db6691c29","b":1}' crossorigin="anonymous"></script>
 </body>
 
 <!-- Mirrored from truelysell.dreamstechnologies.com/html/template/booking.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Feb 2025 03:25:58 GMT -->

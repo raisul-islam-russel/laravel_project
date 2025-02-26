@@ -306,7 +306,7 @@
 											</div>
 											<div class="d-flex justify-content-between align-items-center">
 												<h5>{{$service->price}} <span class="fs-13 text-gray"><del>{{$service->price}}/hr</del></span></h5>
-												<a href="" class="btn bg-primary-transparent">Book Now</a>
+												<a href="{{url("booking?service_id=$service->id")}}" class="btn bg-primary-transparent">Book Now</a>
 											</div>
 										</div>
 									</div>

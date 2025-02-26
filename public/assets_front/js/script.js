@@ -3,6 +3,9 @@ Author       : Dreamguys
 Template Name: Truelysell - Bootstrap Template
 */
 (function ($) {
+
+	console.log('hello');	
+
 	"use strict";
 	var $slimScrolls = $('.slimscroll');
 	var $wrapper = $('.main-wrapper');
@@ -1414,6 +1417,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
 	/*---------------------------------------------------------*/
+	
 	$(".wizard-fieldset #first-field .next_btn").on('click', function () {
 		$('#providerwizard .active').removeClass('active').addClass('active').next().addClass('');
 	});
@@ -1425,6 +1429,8 @@ $(document).ready(function () {
 
 		$.fn.hasId = function (id) {
 			return this.closest('#' + id).length > 0;
+
+			
 		};
 		// Adding Class Active To Show Steps Forward;
 		if ($(this).hasId('first-field')) {
@@ -2816,3 +2822,5 @@ $('.quantity-minus').click(function (e) {
 		$('#increment-count2').val(quantity3 - 1);
 	}
 });
+
+

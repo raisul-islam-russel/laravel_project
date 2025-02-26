@@ -41,6 +41,7 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{ asset('assets_front') }}/css/style.css">
+    
     @yield('css')
 </head>
 
@@ -74,7 +75,7 @@
                                             <input type="text" class="form-control" placeholder="Enter Location">
                                         </div>
                                         <div class="mb-2">
-                                            <a href="/search"
+                                            <a href="{{url('/search')}}"
                                                 class="btn btn-linear-primary d-inline-flex align-items-center w-100">
                                                 <i class="feather-search me-2"></i>
                                                 Search

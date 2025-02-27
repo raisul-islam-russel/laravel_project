@@ -43,13 +43,13 @@
                     </li>
                     <li class="has-submenu megamenu active">
                         <a href="/">Home </a>
-                    <li><a href="/about-us">About</a></li>
+                    <li><a href="{{ url('about-us') }}">About</a></li>
                     <li>
-                        <a href="/blog">Blog</a>
-                        <li><a href="/services">Services</a></li>
-                        <li><a href="/contact">Contact Us</a></li>
-                        <li><a href="/how-it-works">How It Works</a></li>
-                        <li><a href="/provider-register">Become a Provider</a></li>
+                        <a href="{{ url('blogs') }}">Blog</a>
+                        <li><a href="{{ url('services') }}">Services</a></li>
+                        <li><a href="{{ url('contact-us')}}">Contact Us</a></li>
+                        <li><a href="{{ url('how-it-works')}}">How It Works</a></li>
+                        <li><a href="{{ url('provider-register')}}">Become a Provider</a></li>
 
                     <li class="nav-item d-sm-none">
                         <a class="nav-link" href="login.html">Sign In</a>

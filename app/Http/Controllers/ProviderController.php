@@ -8,6 +8,7 @@
 */
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
+use App\Models\AdditionalService;
 use App\Models\Provider;
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -73,9 +74,11 @@ date_default_timezone_set("Asia/Dhaka");
 
 		$service= Service::find($request->service_id);
 
+		$additionalservices= AdditionalService::paginate(8);
+
 		// print_r(  $service);
 
-		return view('pages.booking', compact('providers', 'service'));
+		return view('pages.booking', compact('providers', 'service', 'additionalservices'));
 	}
 }
 ?>

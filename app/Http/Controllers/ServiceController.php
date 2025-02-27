@@ -8,6 +8,7 @@
 */
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
+use App\Models\AdditionalService;
 use App\Models\Service;
 
 use Illuminate\Http\Request;
@@ -87,6 +88,7 @@ date_default_timezone_set("Asia/Dhaka");
 	function bookingServicePage(){
 
         $services= Service::paginate(12);
+		
 
 		//print_r(  $services);
 

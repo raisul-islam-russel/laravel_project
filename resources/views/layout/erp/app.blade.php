@@ -25,7 +25,7 @@
     <!-- Map CSS -->
     <link rel="stylesheet" href="{{ asset('assets') }}/plugins/jvectormap/jquery-jvectormap-2.0.3.css">
 
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Feather CSS -->
     <link rel="stylesheet" href="{{ asset('assets') }}/plugins/feather/feather.css">
@@ -101,6 +101,7 @@
         integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
         data-cf-beacon='{"rayId":"90bf4890ee32786d","version":"2025.1.0","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"3ca157e612a14eccbb30cf6db6691c29","b":1}'
         crossorigin="anonymous"></script>
+    <script src="{{ asset('assets_front') }}/js/cart_.js"></script>
 </body>
 
 

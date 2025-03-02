@@ -154,7 +154,7 @@
                                                                 class="bg-light-500 d-inline-flex align-items-center"
                                                                 data-bs-toggle="dropdown">
                                                                 <i class="ti ti-shopping-cart me-1 "></i>Cart<span
-                                                                    class=" cart bg-primary num-count ms-1">1</span>
+                                                                    class=" cart bg-primary num-count ms-1">5</span>
                                                             </a>
                                                             <div class="dropdown-menu dropdown-sm p-3">
                                                                 <h6 class="fs-13 mb-3">Added In Cart (02)</h6>
@@ -353,6 +353,7 @@
                                                                             class="ti ti-star-filled text-warning me-1"></i>4.9
                                                                     </p>
                                                                     <a href="javascript:void(0);"
+                                                                        data-id="{{ $add_service->id }}"
                                                                         class="btn btn-light btn-sm btn-addon d-inline-flex align-items-center add_addservie"><i
                                                                             class="feather-plus-circle me-1"></i>Add</a>
                                                                 </div>
@@ -667,56 +668,7 @@
                                                 </div>
                                                 <div class="row g-3">
                                                     <div class="col-md-5">
-                                                        {{-- <div class="cart-info-wrap">
-                                                            <div
-                                                                class="mb-2 d-flex align-items-center justify-content-between">
-                                                                <div>
-                                                                    <h6 class="fw-medium">Lighting Services</h6>
-                                                                    <p class="fs-10">30 Min</p>
-                                                                </div>
-                                                                <h6 class="fs-12 fw-medium">$457</h6>
-                                                                <button><i class="ti ti-trash"></i></button>
-                                                            </div>
 
-                                                            <div class="border-top pt-3 mt-3">
-                                                                <h6 class="mb-2">Providers Address</h6>
-                                                                <div class="d-flex align-items-center mb-3">
-                                                                    <span class="avatar avatar-lg">
-                                                                        <img src="{{ asset('assets_front') }}/img/icons/service-02.svg"
-                                                                            alt="img">
-                                                                    </span>
-                                                                    <div class="ms-2">
-                                                                        <h6 class="fw-medium mb-1">Lighting Services
-                                                                            -California Shop</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="border-top pt-3">
-                                                                <h6 class="mb-2">Selected Provider</h6>
-                                                                <div class="d-flex align-items-center mb-3">
-                                                                    <span class="avatar avatar-lg">
-                                                                        <img src="{{ asset('assets_front') }}/img/profiles/avatar-04.jpg"
-                                                                            alt="img">
-                                                                    </span>
-                                                                    <div class="ms-2">
-                                                                        <h6 class="fw-medium mb-1">Travis Machado</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="border-top pt-3 mt-3">
-                                                                <h6 class="mb-2">Booking Date & Time</h6>
-                                                                <p
-                                                                    class="mb-2 text-gray-9 fw-medium d-flex align-items-center">
-                                                                    <i class="feather-calendar me-2"></i>Fri, 12 Aug
-                                                                    2024
-                                                                </p>
-                                                                <p
-                                                                    class="text-gray-9 fw-medium d-flex align-items-center">
-                                                                    <i class="feather-clock me-2"></i>08:30 AM - 09:00
-                                                                    AM
-                                                                </p>
-                                                            </div>
-                                                        </div> --}}
 
                                                         <div class="cart-info-wrap">
                                                             <div class="cart-items-wrap"></div>
@@ -930,11 +882,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+
                                                 <div class="row g-3">
                                                     <div class="col-md-12">
                                                         <div class="card flex-fill ">
-                                                            <div 
+                                                            <div
                                                                 class="card-body p-3 d-flex justify-content-between flex-column ">
                                                                 <div>
                                                                     <div
@@ -948,11 +900,20 @@
                                                                                 {{ $service->title ?? '' }}</h6>
                                                                             <p>30 Minutes</p>
                                                                         </div>
+                                                                        <div class="ms-2">
+                                                                            <h6 class="fs-14 fw-medium mb-1">
+                                                                                {{ $service->title ?? '' }}</h6>
+                                                                            <p>30 Minutes</p>
+                                                                        </div>
+
                                                                     </div>
                                                                     <div class="mb-2">
-                                                                        <h6 class="fw-medium mb-1">Additional Service
+                                                                        <h6 class="fw-medium mb-1 ">Additional Service
                                                                         </h6>
-                                                                        <p>Outlets & Wiring, Switches Changes</p>
+                                                                        <div class="additional-service">
+
+                                                                        </div>
+
                                                                     </div>
                                                                     <div class="mb-2">
                                                                         <h6 class="fw-medium mb-1">Provider Address
@@ -966,11 +927,13 @@
                                                                     </div>
                                                                     <div class="mb-2">
                                                                         <h6 class="fw-medium mb-1">Date & Time</h6>
-                                                                        <p>Sun 16 July 2023 at 5:00pm</p>
+                                                                        <p id="datetime">Sun 16 July 2023 at 5:00pm
+                                                                        </p>
                                                                     </div>
                                                                     <div class="mb-0">
                                                                         <h6 class="fw-medium mb-1">Amount</h6>
-                                                                        <span class="badge badge-dark">$757</span>
+                                                                        <span
+                                                                            class="badge badge-dark total">$757</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="text-center border-top pt-3 mt-3">
@@ -983,7 +946,7 @@
                                                     </div>
 
                                                 </div>
-                                
+
                                             </div>
                                             <div class="booking-footer d-flex align-items-center justify-content-end">
                                                 <div class="d-flex align-items-center">
@@ -1284,38 +1247,25 @@
     @extends('frontend.footer')
 
 
+
     <script>
         // set data on cart
         $(document).ready(function() {
-
             function updateCartLength() {
-
                 var cart = new Cart('user_cart');
-
-
                 let items = cart.getCart();
-
-
                 let cartLength = items ? items.length : 0;
-
-
                 $('.num-count').text(cartLength);
             }
 
             updateCartLength();
-
-
         });
 
+
         //set provider on local storage
-
         $(document).on('click', '.provider', function() {
-
             let providerData = $(this).data('provider');
-
-
             if (providerData) {
-
                 if (typeof providerData === 'string') {
                     try {
                         providerData = JSON.parse(providerData);
@@ -1324,41 +1274,30 @@
                         return;
                     }
                 }
-
-
-                console.log("Provider Data:", providerData);
-
-
                 localStorage.setItem('selected_provider', JSON.stringify(providerData));
-
-
             }
         });
 
-        // set additaional service on localt storage
-
+        //set additional service on local storage
         $(document).ready(function() {
-
             var cart = new Cart('user_cart');
-
 
             function updateCartLength() {
                 let items = cart.getCart() || [];
                 $('.num-count').text(items.length);
             }
 
-
             updateCartLength();
-
 
             $(document).on('click', '.add_addservie', function(e) {
                 e.preventDefault();
-
                 var serviceContainer = $(this).closest('.select-item');
+                let id = $(this).attr('data-id');
+
+                //alert(id);
 
                 var service = {
-                    item_id: serviceContainer.find('h6').text()
-                        .trim(),
+                    item_id: id,
                     name: serviceContainer.find('h6').text().trim(),
                     price: parseFloat(serviceContainer.find('.text-gray-9').text().replace('$', '')),
                     qty: 1,
@@ -1367,121 +1306,78 @@
                     subtotal: parseFloat(serviceContainer.find('.text-gray-9').text().replace('$', ''))
                 };
 
-
                 cart.save(service);
-
                 updateCartLength();
             });
         });
 
         //set date and time on local storage
-
         $(document).ready(function() {
             var storageKey = 'selected_datetime';
 
-            // Flatpickr Date Picker
             flatpickr("#datepick", {
-                dateFormat: "Y-m-d", // You can change the format as needed
+                dateFormat: "Y-m-d",
                 onChange: function(selectedDates, dateStr, instance) {
-                    var selectedDate = dateStr.trim(); // Get the selected date as a string
-
+                    var selectedDate = dateStr.trim();
                     if (selectedDate) {
-                        console.log('Selected Date:', selectedDate);
-
-                        // Create an object to hold the selected date
                         var selectedData = {
                             date: selectedDate,
-                            time: [] // Initialize the time array
+                            time: []
                         };
-
-                        // Store the selected date in localStorage
                         localStorage.setItem(storageKey, JSON.stringify(selectedData));
-
-                        // Confirm the date is saved in localStorage
-                        console.log('Date saved in localStorage:', selectedData);
-                    } else {
-                        console.log('No date selected');
                     }
                 }
             });
 
-            // Handle Time Slot Selection
             $(".time-item").on("click", function() {
-                // Get the time slot that was clicked
                 var selectedTime = $(this).find("h6").text().trim();
-
-                // Get the current data from localStorage
                 var selectedData = JSON.parse(localStorage.getItem(storageKey)) || {};
 
-                // Check if the date is already selected and store the time slot
                 if (selectedData.date) {
-                    // Check if the time slot is already selected
                     if (!selectedData.time.includes(selectedTime)) {
-                        // Add the selected time to the array
                         selectedData.time.push(selectedTime);
-
-                        // Highlight the selected time slot
                         $(this).addClass('selected');
-
-                        // Store the updated date and time in localStorage
-                        localStorage.setItem(storageKey, JSON.stringify(selectedData));
-
-                        // Confirm the selected date and time in localStorage
-                        console.log('Selected Date & Time:', selectedData);
                     } else {
-                        // If the time slot is already selected, remove it
                         selectedData.time = selectedData.time.filter(time => time !== selectedTime);
-
-                        // Remove the highlight from the time slot
                         $(this).removeClass('selected');
-
-                        // Store the updated date and time in localStorage
-                        localStorage.setItem(storageKey, JSON.stringify(selectedData));
-
-                        // Confirm the selected date and time in localStorage
-                        console.log('Updated Date & Time:', selectedData);
                     }
+                    localStorage.setItem(storageKey, JSON.stringify(selectedData));
                 } else {
                     alert('Please select a date first.');
                 }
             });
         });
 
-
-
-
-        //render all cart items
-
+        //render cart
         $(document).ready(function() {
-            var cart = new Cart('user_cart');
+            const cart = new Cart('user_cart');
 
             function renderCart() {
-                let cartItems = cart.getCart() || [];
-                let cartHtml = '';
+                let cartItems = cart.getCart();
+                var cartHtml = '';
 
                 if (cartItems.length === 0) {
                     cartHtml = '<p class="text-center">Your cart is empty.</p>';
                 } else {
                     cartItems.forEach(function(item) {
                         let subtotal = (item.price * item.qty) - (item.total_discount || 0);
-
                         cartHtml += `
-                    <div class="cart-item border-bottom pb-3 mb-3 row align-items-center">
-                        <div class="col-8">
-                            <h6 class="fw-medium mb-1">${item.name}</h6>
-                            <p class="fs-10 text-gray-7">30 Min</p>
-                            <p class="fw-bold">Qty: ${item.qty}</p>
-                        </div>
-                        <div class="col-3 text-end">
-                            <h6 class="fs-12 fw-medium text-primary">$${subtotal.toFixed(2)}</h6>
-                        </div>
-                        <div class="col-1 text-end">
-                            <button class="delete-item btn btn-sm p-0 text-danger" data-id="${item.item_id}" title="Remove">
-                                <i class="ti ti-trash fs-14"></i>
-                            </button>
-                        </div>
-                    </div>
-                `;
+                            <div class="cart-item border-bottom pb-3 mb-3 row align-items-center">
+                                <div class="col-8">
+                                    <h6 class="fw-medium mb-1">${item.name}</h6>
+                                    <p class="fs-10 text-gray-7">30 Min</p>
+                                    <p class="fw-bold">Qty: ${item.qty}</p>
+                                </div>
+                                <div class="col-3 text-end">
+                                    <h6 class="fs-12 fw-medium text-primary">$${subtotal.toFixed(2)}</h6>
+                                </div>
+                                <div class="col-1 text-end">
+                                    <button class="delete-item btn btn-sm p-0 text-danger" data-id="${item.item_id}" title="Remove">
+                                        <i class="ti ti-trash fs-14"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        `;
                     });
                 }
 
@@ -1516,13 +1412,11 @@
         });
 
 
-        //formdata on local storage
-        $(document).ready(function() {
-            const formSelector =
-                'form';
-            const storageKey = 'form_data'; // Key for storing data in localStorage
+        //set form data on local storage
 
-            // Function to save form data to localStorage
+        $(document).ready(function() {
+            const storageKey = 'form_data';
+
             function saveFormData() {
                 const formData = {
                     firstName: $('#firstName').val(),
@@ -1535,16 +1429,11 @@
                     postalCode: $('#postalCode').val(),
                     bookingNotes: $('#bookingNotes').val()
                 };
-
-
                 localStorage.setItem(storageKey, JSON.stringify(formData));
-
-
-                console.log('Form data saved:', formData);
             }
 
             $('input, textarea').on('input', function() {
-                saveFormData(); // Save form data whenever any input changes
+                saveFormData();
             });
 
             function populateFormFromStorage() {
@@ -1562,15 +1451,52 @@
                     $('#bookingNotes').val(savedData.bookingNotes || '');
                 }
             }
-
-
             populateFormFromStorage();
+
+
+            // additional service functionality
+
+            function additinal_services() {
+
+                const cart = new Cart('user_cart');
+
+                let additional_services = cart.getCart();
+                let htmlservices = ''; // initialize an empty string
+
+                let subtotal = additional_services.reduce((acc, item) => acc += item.subtotal, 0);
+
+                additional_services.slice(1).forEach(item => {
+                    htmlservices += `
+                    <div class="cart-item border-bottom pb-3 mb-3 row align-items-center">
+                                <div class="col-8">
+                                    <h6 class="fw-medium mb-1">${item.name}</h6>
+                                    <p class="fs-10 text-gray-7">30 Min</p>
+                                    <p class="fw-bold">Qty:${item.qty}</p>
+                                </div>
+                                <div class="col-3 text-end">
+                                    <h6 class="fs-12 fw-medium text-primary">${item.subtotal}</h6>
+                                </div>
+                                <div class="col-1 text-end">
+                                    <button class="delete-item btn btn-sm p-0 text-danger" data-id="5" title="Remove">
+                                        <i class="ti ti-trash fs-14"></i>
+                                    </button>
+                                </div>
+                            </div>
+                    `; // append the HTML for each item
+                });
+                
+
+                $('.additional-service').html(htmlservices); // insert the HTML into the target element
+                $('.total').html(subtotal); // insert the HTML into the target element
+
+                console.log( 'htmlservices'	,   subtotal);
+
+            }
+
+            additinal_services()
         });
-
-
-        //final cart items
-        
     </script>
+
 
 
     <!-- Cursor -->

@@ -53,8 +53,8 @@
                     <li>
                         <a href="javascript:void(0);" class=" d-inline-flex align-items-center"
                             data-bs-toggle="dropdown">
-                            <i class="ti ti-shopping-cart me-1 "></i>Cart<span
-                                class=" cart bg-primary num-count ms-1">5</span>
+                            <i class="ti ti-shopping-cart me-1"></i>Cart<span
+                                class=" cart bg-primary num-count ms-1">0</span>
                         </a>
                     </li>
 

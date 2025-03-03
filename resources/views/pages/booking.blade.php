@@ -673,7 +673,12 @@
                                                         <div class="cart-info-wrap">
                                                             <div class="cart-items-wrap"></div>
                                                             <!-- Dynamic Cart Items Will Load Here -->
-
+                                                            <div
+                                                                class="cart-total border-top pt-3 mt-3 d-flex justify-content-between">
+                                                                <h6 class="fw-medium">Total:</h6>
+                                                                <h6 class="fs-12 fw-bold text-primary total"
+                                                                    id="cart-total-price">$0.00</h6>
+                                                            </div>
                                                             <div class="border-top pt-3 mt-3">
                                                                 <h6 class="mb-2">Providers Address</h6>
                                                                 <div class="d-flex align-items-center mb-3">
@@ -683,8 +688,8 @@
                                                                     </span>
                                                                     <div class="ms-2">
                                                                         <h6 id="provider-address"
-                                                                            class="fw-medium mb-1">Lighting Services -
-                                                                            California Shop</h6>
+                                                                            class="fw-medium mb-1">
+                                                                            {{ $provider->address }}</h6>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -693,12 +698,12 @@
                                                                 <h6 class="mb-2">Selected Provider</h6>
                                                                 <div class="d-flex align-items-center mb-3">
                                                                     <span class="avatar avatar-lg">
-                                                                        <img src="{{ asset('assets_front') }}/img/profiles/avatar-04.jpg"
+                                                                        <img src="{{ asset('assets_front') }}/img/provider/{{ $provider->provider_img }}"
                                                                             alt="img">
                                                                     </span>
                                                                     <div class="ms-2">
                                                                         <h6 id="provider-name" class="fw-medium mb-1">
-                                                                            Travis Machado</h6>
+                                                                            {{ $provider->business_name }}</h6>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -715,6 +720,7 @@
                                                                     <i class="feather-clock me-2"></i>08:30 AM - 09:00
                                                                     AM
                                                                 </p>
+
                                                             </div>
                                                         </div>
 
@@ -813,7 +819,7 @@
                                         <!-- /Personal Information -->
 
                                         <!-- Cart -->
-                                        <fieldset class="booking-content">
+                                        <fieldset class="booking-content" id="cartlist">
                                             <div class="book-card">
                                                 <div
                                                     class="d-flex align-items-center justify-content-between flex-wrap booking-title">
@@ -883,14 +889,14 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="row g-3">
+                                                {{-- <div class="row g-3">
                                                     <div class="col-md-12">
                                                         <div class="card flex-fill ">
                                                             <div
                                                                 class="card-body p-3 d-flex justify-content-between flex-column ">
                                                                 <div>
                                                                     <div
-                                                                        class="d-flex align-items-center p-3 bg-light-400 rounded mb-2">
+                                                                        class=" d-flex align-items-center p-3 bg-light-400 rounded mb-2">
                                                                         <span class="avatar avatar-lg">
                                                                             <img src="{{ asset('assets_front') }}/img/services/{{ $service->service_img ?? 'default.png' }}"
                                                                                 alt="img">
@@ -899,17 +905,19 @@
                                                                             <h6 class="fs-14 fw-medium mb-1">
                                                                                 {{ $service->title ?? '' }}</h6>
                                                                             <p>30 Minutes</p>
+                                                                            <div class="col-3 text-end">
+                                                                                <h6 class="fs-12 fw-medium text-primary">${{ $service->price ?? '' }}</h6>
+                                                                            </div>
+                                                      
+                                                                            
                                                                         </div>
-                                                                        <div class="ms-2">
-                                                                            <h6 class="fs-14 fw-medium mb-1">
-                                                                                {{ $service->title ?? '' }}</h6>
-                                                                            <p>30 Minutes</p>
-                                                                        </div>
+                                            
+                                                                       
 
                                                                     </div>
                                                                     <div class="mb-2">
-                                                                        <h6 class="fw-medium mb-1 ">Additional Service
-                                                                        </h6>
+                                                                        <h5 class="fw-medium mb-1 ">Additional Services:
+                                                                        </h5>
                                                                         <div class="additional-service">
 
                                                                         </div>
@@ -945,7 +953,69 @@
                                                         </div>
                                                     </div>
 
+                                                </div> --}}
+
+                                                <div class="row g-3">
+                                                    <div class="col-md-12">
+                                                        <div class="card flex-fill">
+                                                            <div
+                                                                class="card-body p-3 d-flex justify-content-between flex-column">
+                                                                <div>
+                                                                    <div
+                                                                        class="d-flex align-items-center p-3 bg-light-400 rounded mb-2">
+                                                                        <span class="avatar avatar-lg">
+                                                                            <img src="{{ asset('assets_front') }}/img/services/{{ $service->service_img ?? 'default.png' }}"
+                                                                                alt="img">
+                                                                        </span>
+                                                                        <div class="ms-2 flex-grow-1">
+                                                                            <h6 class="fs-14 fw-medium mb-1">
+                                                                                {{ $service->title ?? '' }}</h6>
+                                                                            <p class="mb-0">30 Minutes</p>
+
+
+                                                                        </div>
+                                                                        <div class="text-end ms-auto "
+                                                                            style="padding-right: 60px">
+                                                                            <h6 class="fs-12 fw-medium text-primary">
+                                                                                ${{ $service->price ?? '' }}</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="mb-2">
+                                                                        <h6 class="fw-medium mb-1">Additional Services:
+                                                                        </h6>
+                                                                        <div class="additional-service"></div>
+                                                                    </div>
+                                                                    <div class="mb-2">
+                                                                        <h6 class="fw-medium mb-1">Provider Address
+                                                                        </h6>
+                                                                        <p>{{ $provider->address ?? '' }}</p>
+                                                                    </div>
+                                                                    <div class="mb-2">
+                                                                        <h6 class="fw-medium mb-1">Provider</h6>
+                                                                        <p>{{ $provider->business_name ?? '' }}</p>
+                                                                    </div>
+                                                                    <div class="mb-2">
+                                                                        <h6 class="fw-medium mb-1">Date & Time</h6>
+                                                                        <p id="datetime">Sun 16 July 2023 at 5:00pm
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="mb-0">
+                                                                        <h6 class="fw-medium mb-1">Amount</h6>
+                                                                        <span class="badge badge-dark"
+                                                                            id="total">$000</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center border-top pt-3 mt-3">
+                                                                    <a href="javascript:void(0);"
+                                                                        class="d-inline-flex align-items-center link-danger fs-12">
+                                                                        <i class="ti ti-trash me-1"></i>Remove
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
+
 
                                             </div>
                                             <div class="booking-footer d-flex align-items-center justify-content-end">
@@ -1278,38 +1348,42 @@
             }
         });
 
-        //set additional service on local storage
-        $(document).ready(function() {
-            var cart = new Cart('user_cart');
 
+        $(document).ready(function() {
+            let cart = new Cart('user_cart');
+
+            // Update the cart length when called
             function updateCartLength() {
-                let items = cart.getCart() || [];
+                let items = cart.getCart();
                 $('.num-count').text(items.length);
             }
 
+            // Initial call to update cart length on page load
             updateCartLength();
 
+            // Handle the add service button click
             $(document).on('click', '.add_addservie', function(e) {
                 e.preventDefault();
-                var serviceContainer = $(this).closest('.select-item');
-                let id = $(this).attr('data-id');
 
-                //alert(id);
+                let serviceContainer = $(this).closest('.select-item');
+                let id = $(this).data('id');
 
-                var service = {
+                // Get service details
+                let service = {
                     item_id: id,
                     name: serviceContainer.find('h6').text().trim(),
                     price: parseFloat(serviceContainer.find('.text-gray-9').text().replace('$', '')),
                     qty: 1,
-                    discount: 0,
-                    total_discount: 0,
-                    subtotal: parseFloat(serviceContainer.find('.text-gray-9').text().replace('$', ''))
+                    subtotal: parseFloat(serviceContainer.find('.text-gray-9').text().replace('$',
+                        '')) // Subtotal is same as price here
                 };
 
+                // Save the service to cart and update the cart length
                 cart.save(service);
                 updateCartLength();
             });
         });
+
 
         //set date and time on local storage
         $(document).ready(function() {
@@ -1463,6 +1537,9 @@
                 let additional_services = cart.getCart();
                 let htmlservices = ''; // initialize an empty string
 
+                // console.log(additional_services);
+
+
                 let subtotal = additional_services.reduce((acc, item) => acc += item.subtotal, 0);
 
                 additional_services.slice(1).forEach(item => {
@@ -1484,16 +1561,37 @@
                             </div>
                     `; // append the HTML for each item
                 });
-                
+
 
                 $('.additional-service').html(htmlservices); // insert the HTML into the target element
                 $('.total').html(subtotal); // insert the HTML into the target element
 
-                console.log( 'htmlservices'	,   subtotal);
+                // console.log( subtotal);
+
+
 
             }
 
             additinal_services()
+        });
+
+
+
+
+
+        // date and time
+
+        $(document).ready(function() {
+            var storedData = localStorage.getItem('selected_datetime');
+
+            if (storedData) {
+                var data = JSON.parse(storedData);
+                var formattedDate = new Date(data.date).toDateString();
+                var finalDisplay = formattedDate + " at " + (data.time.length ? data.time[0] : "No time selected");
+                $("#datetime").text(finalDisplay);
+            } else {
+                $("#datetime").text("No date/time selected");
+            }
         });
     </script>
 

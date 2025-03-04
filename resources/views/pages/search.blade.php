@@ -434,7 +434,7 @@
                                     <a href="javascript:void(0);">Getting started</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);">Help center</a>
+                    <a href="javascript:void(0);">Help center</a>
                                 </li>
                                 <li>
                                     <a href="javascript:void(0);">Server status</a>
@@ -629,6 +629,7 @@
                         provider_img: service.provider_img,
                         service_image: service.service_img,
                         status: service.status,
+                        subtotal: service.price,
                         qty: 1, // Initially set quantity to 1
                         
                        

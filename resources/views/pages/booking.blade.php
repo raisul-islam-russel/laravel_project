@@ -592,7 +592,8 @@
                                                         class="btn btn-sm btn-light d-inline-flex align-items-center prev_btn me-2"><i
                                                             class="ti ti-arrow-left me-1"></i>Prev</a>
                                                     <a href="javascript:void(0);"
-                                                        class="btn btn-sm btn-dark d-inline-flex align-items-center next_btn">Next<i
+                                                        class="btn btn-sm btn-dark d-inline-flex align-items-center next_btn"
+                                                        onclick="loadservices()">Next<i
                                                             class="ti ti-arrow-right ms-1"></i></a>
                                                 </div>
                                             </div>
@@ -674,9 +675,9 @@
                                                             <div class="cart-items-wrap"></div>
                                                             <!-- Dynamic Cart Items Will Load Here -->
                                                             <div
-                                                                class="cart-total border-top pt-3 mt-3 d-flex justify-content-between">
-                                                                <h6 class="fw-medium">Total:</h6>
-                                                                <h6 class="fs-12 fw-bold text-primary total"
+                                                                class="cart-total  border-top pt-3 mt-3 d-flex justify-content-between">
+                                                                <h6 class="fw-medium fs-16">Total:</h6>
+                                                                <h6 class="fs-16 fw-bold text-primary total"
                                                                     id="cart-total-price">$0.00</h6>
                                                             </div>
                                                             <div class="border-top pt-3 mt-3">
@@ -687,8 +688,7 @@
                                                                             alt="img">
                                                                     </span>
                                                                     <div class="ms-2">
-                                                                        <h6 id="provider-address"
-                                                                            class="fw-medium mb-1">
+                                                                        <h6 class="fw-medium mb-1 provider-address">
                                                                             {{ $provider->address }}</h6>
                                                                     </div>
                                                                 </div>
@@ -702,7 +702,7 @@
                                                                             alt="img">
                                                                     </span>
                                                                     <div class="ms-2">
-                                                                        <h6 id="provider-name" class="fw-medium mb-1">
+                                                                        <h6 class="fw-medium mb-1 provider-name">
                                                                             {{ $provider->business_name }}</h6>
                                                                     </div>
                                                                 </div>
@@ -888,72 +888,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                {{-- <div class="row g-3">
-                                                    <div class="col-md-12">
-                                                        <div class="card flex-fill ">
-                                                            <div
-                                                                class="card-body p-3 d-flex justify-content-between flex-column ">
-                                                                <div>
-                                                                    <div
-                                                                        class=" d-flex align-items-center p-3 bg-light-400 rounded mb-2">
-                                                                        <span class="avatar avatar-lg">
-                                                                            <img src="{{ asset('assets_front') }}/img/services/{{ $service->service_img ?? 'default.png' }}"
-                                                                                alt="img">
-                                                                        </span>
-                                                                        <div class="ms-2">
-                                                                            <h6 class="fs-14 fw-medium mb-1">
-                                                                                {{ $service->title ?? '' }}</h6>
-                                                                            <p>30 Minutes</p>
-                                                                            <div class="col-3 text-end">
-                                                                                <h6 class="fs-12 fw-medium text-primary">${{ $service->price ?? '' }}</h6>
-                                                                            </div>
-                                                      
-                                                                            
-                                                                        </div>
-                                            
-                                                                       
-
-                                                                    </div>
-                                                                    <div class="mb-2">
-                                                                        <h5 class="fw-medium mb-1 ">Additional Services:
-                                                                        </h5>
-                                                                        <div class="additional-service">
-
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <div class="mb-2">
-                                                                        <h6 class="fw-medium mb-1">Provider Address
-                                                                        </h6>
-                                                                        <p>{{ $provider->address ?? '' }}
-                                                                        </p>
-                                                                    </div>
-                                                                    <div class="mb-2">
-                                                                        <h6 class="fw-medium mb-1">Provider</h6>
-                                                                        <p>{{ $provider->business_name ?? '' }}</p>
-                                                                    </div>
-                                                                    <div class="mb-2">
-                                                                        <h6 class="fw-medium mb-1">Date & Time</h6>
-                                                                        <p id="datetime">Sun 16 July 2023 at 5:00pm
-                                                                        </p>
-                                                                    </div>
-                                                                    <div class="mb-0">
-                                                                        <h6 class="fw-medium mb-1">Amount</h6>
-                                                                        <span
-                                                                            class="badge badge-dark total">$757</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-center border-top pt-3 mt-3">
-                                                                    <a href="javascript:void(0);"
-                                                                        class="d-inline-flex align-items-center link-danger fs-12"><i
-                                                                            class="ti ti-trash me-1"></i>Remove</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div> --}}
 
                                                 <div class="row g-3">
                                                     <div class="col-md-12">
@@ -1319,10 +1253,67 @@
 
 
     <script>
+        $(function() {
+
+            $(document).on('click', '.next_btn', function() {
+                addiitional_services_print();
+            })
+
+
+
+            function addiitional_services_print() {
+
+                const cart = new Cart('user_cart');
+
+                let additional_services = cart.getCart('user_cart');
+                let htmlservices = ''; // initialize an empty string
+
+
+                console.log(additional_services);
+
+
+                let subtotal = additional_services.reduce((acc, item) => acc += item.subtotal, 0);
+
+
+                if (additional_services?.length) {
+                    additional_services.forEach(item => {
+                        htmlservices += `
+                            <div class="cart-item border-bottom pb-3 mb-3 row align-items-center">
+                            <div class="col-8">
+                                <h6 class="fw-medium mb-1">${item.name}</h6>
+                                <p class="fs-10 text-gray-7">30 Min</p>
+                                <p class="fw-bold">Qty:${item.qty}</p>
+                            </div>
+                            <div class="col-3 text-end">
+                                <h6 class="fs-12 fw-medium text-primary">${item.subtotal}</h6>
+                            </div>
+                            <div class="col-1 text-end">
+                                <button class="delete-item btn btn-sm p-0 text-danger" data-id="5" title="Remove">
+                                    <i class="ti ti-trash fs-14"></i>
+                                </button>
+                            </div>
+                            </div>
+                            `; // append the HTML for each item
+                    });
+
+                }
+                // $('.additional-service').append(htmlservices); // insert the HTML into the target element
+                $('.cart-items-wrap').html(htmlservices); // insert the HTML into the target element
+                $('.total').html("$" + subtotal); // insert the HTML into the target element
+
+
+                // console.log(htmlservices);
+                // console.log("function called");
+
+            }
+        })
+
+
         // set data on cart
         $(document).ready(function() {
             function updateCartLength() {
-                var cart = new Cart('user_cart');
+                let cart = new Cart('user_cart');
+
                 let items = cart.getCart();
                 let cartLength = items ? items.length : 0;
                 $('.num-count').text(cartLength);
@@ -1352,10 +1343,12 @@
         $(document).ready(function() {
             let cart = new Cart('user_cart');
 
+
             // Update the cart length when called
             function updateCartLength() {
                 let items = cart.getCart();
-                $('.num-count').text(items.length);
+                // console.log(items[0].price);
+                $('.num-count').text(items?.length ?? 0);
             }
 
             // Initial call to update cart length on page load
@@ -1387,7 +1380,7 @@
 
         //set date and time on local storage
         $(document).ready(function() {
-            var storageKey = 'selected_datetime';
+            var datetimekey = 'selected_datetime';
 
             flatpickr("#datepick", {
                 dateFormat: "Y-m-d",
@@ -1398,14 +1391,14 @@
                             date: selectedDate,
                             time: []
                         };
-                        localStorage.setItem(storageKey, JSON.stringify(selectedData));
+                        localStorage.setItem(datetimekey, JSON.stringify(selectedData));
                     }
                 }
             });
 
             $(".time-item").on("click", function() {
                 var selectedTime = $(this).find("h6").text().trim();
-                var selectedData = JSON.parse(localStorage.getItem(storageKey)) || {};
+                var selectedData = JSON.parse(localStorage.getItem(datetimekey)) || {};
 
                 if (selectedData.date) {
                     if (!selectedData.time.includes(selectedTime)) {
@@ -1415,14 +1408,14 @@
                         selectedData.time = selectedData.time.filter(time => time !== selectedTime);
                         $(this).removeClass('selected');
                     }
-                    localStorage.setItem(storageKey, JSON.stringify(selectedData));
+                    localStorage.setItem(datetimekey, JSON.stringify(selectedData));
                 } else {
                     alert('Please select a date first.');
                 }
             });
         });
 
-        //render cart
+        //add additional services to cart
         $(document).ready(function() {
             const cart = new Cart('user_cart');
 
@@ -1430,9 +1423,9 @@
                 let cartItems = cart.getCart();
                 var cartHtml = '';
 
-                if (cartItems.length === 0) {
-                    cartHtml = '<p class="text-center">Your cart is empty.</p>';
-                } else {
+                if (cartItems) {
+
+
                     cartItems.forEach(function(item) {
                         let subtotal = (item.price * item.qty) - (item.total_discount || 0);
                         cartHtml += `
@@ -1453,6 +1446,8 @@
                             </div>
                         `;
                     });
+                } else {
+                    cartHtml = '<p class="text-center">Your cart is empty.</p>';
                 }
 
                 $('.cart-items-wrap').html(cartHtml);
@@ -1462,9 +1457,11 @@
             function updateCartLength() {
                 let cartItems = cart.getCart() || [];
                 $('.num-count').text(cartItems.length);
+
             }
 
             renderCart();
+
 
             $(document).on('click', '.delete-item', function() {
                 let itemId = $(this).data('id');
@@ -1472,24 +1469,26 @@
                 renderCart();
             });
 
+            //providers and time slot
+
             var selectedProvider = JSON.parse(localStorage.getItem('selected_provider'));
-            if (selectedProvider) {
-                $('#provider-address').text(selectedProvider.address || 'Lighting Services - California Shop');
-                $('#provider-name').text(selectedProvider.business_name || 'Pro Local Services');
-            }
+
+            $('.provider-address').text(selectedProvider.address || 'Not Found');
+            $('.provider-name').text(selectedProvider.business_name || 'Not Found');
+
 
             var selectedDatetime = JSON.parse(localStorage.getItem('selected_datetime'));
-            if (selectedDatetime) {
-                $('#booking-date').text(selectedDatetime.date || 'Fri, 12 Aug 2024');
-                $('#booking-time').text(selectedDatetime.time || '08:30 AM - 09:00 AM');
-            }
+
+            $('#booking-date').text(selectedDatetime.date || 'Date Not Selected');
+            $('#booking-time').text(selectedDatetime.time || 'Time Not Selected');
+
         });
 
 
         //set form data on local storage
 
         $(document).ready(function() {
-            const storageKey = 'form_data';
+            const formDataKey = 'form_data';
 
             function saveFormData() {
                 const formData = {
@@ -1503,7 +1502,7 @@
                     postalCode: $('#postalCode').val(),
                     bookingNotes: $('#bookingNotes').val()
                 };
-                localStorage.setItem(storageKey, JSON.stringify(formData));
+                localStorage.setItem(formDataKey, JSON.stringify(formData));
             }
 
             $('input, textarea').on('input', function() {
@@ -1511,7 +1510,7 @@
             });
 
             function populateFormFromStorage() {
-                const savedData = JSON.parse(localStorage.getItem(storageKey));
+                const savedData = JSON.parse(localStorage.getItem(formDataKey));
 
                 if (savedData) {
                     $('#firstName').val(savedData.firstName || '');
@@ -1528,70 +1527,6 @@
             populateFormFromStorage();
 
 
-            // additional service functionality
-
-            function additinal_services() {
-
-                const cart = new Cart('user_cart');
-
-                let additional_services = cart.getCart();
-                let htmlservices = ''; // initialize an empty string
-
-                // console.log(additional_services);
-
-
-                let subtotal = additional_services.reduce((acc, item) => acc += item.subtotal, 0);
-
-                additional_services.slice(1).forEach(item => {
-                    htmlservices += `
-                    <div class="cart-item border-bottom pb-3 mb-3 row align-items-center">
-                                <div class="col-8">
-                                    <h6 class="fw-medium mb-1">${item.name}</h6>
-                                    <p class="fs-10 text-gray-7">30 Min</p>
-                                    <p class="fw-bold">Qty:${item.qty}</p>
-                                </div>
-                                <div class="col-3 text-end">
-                                    <h6 class="fs-12 fw-medium text-primary">${item.subtotal}</h6>
-                                </div>
-                                <div class="col-1 text-end">
-                                    <button class="delete-item btn btn-sm p-0 text-danger" data-id="5" title="Remove">
-                                        <i class="ti ti-trash fs-14"></i>
-                                    </button>
-                                </div>
-                            </div>
-                    `; // append the HTML for each item
-                });
-
-
-                $('.additional-service').html(htmlservices); // insert the HTML into the target element
-                $('.total').html(subtotal); // insert the HTML into the target element
-
-                // console.log( subtotal);
-
-
-
-            }
-
-            additinal_services()
-        });
-
-
-
-
-
-        // date and time
-
-        $(document).ready(function() {
-            var storedData = localStorage.getItem('selected_datetime');
-
-            if (storedData) {
-                var data = JSON.parse(storedData);
-                var formattedDate = new Date(data.date).toDateString();
-                var finalDisplay = formattedDate + " at " + (data.time.length ? data.time[0] : "No time selected");
-                $("#datetime").text(finalDisplay);
-            } else {
-                $("#datetime").text("No date/time selected");
-            }
         });
     </script>
 

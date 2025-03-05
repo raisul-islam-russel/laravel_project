@@ -593,8 +593,7 @@
                                                             class="ti ti-arrow-left me-1"></i>Prev</a>
                                                     <a href="javascript:void(0);"
                                                         class="btn btn-sm btn-dark d-inline-flex align-items-center next_btn"
-                                                        onclick="loadservices()">Next<i
-                                                            class="ti ti-arrow-right ms-1"></i></a>
+                                                        onclick="">Next<i class="ti ti-arrow-right ms-1"></i></a>
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -703,7 +702,7 @@
                                                                     </span>
                                                                     <div class="ms-2">
                                                                         <h6 class="fw-medium mb-1 provider-name">
-                                                                            {{ $provider->business_name }}</h6>
+                                                                            {{ $provider->business_name }} </h6>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -811,159 +810,15 @@
                                                         class="btn btn-sm btn-light d-inline-flex align-items-center prev_btn me-2"><i
                                                             class="ti ti-arrow-left me-1"></i>Prev</a>
                                                     <a href="javascript:void(0);"
-                                                        class="btn btn-sm btn-dark d-inline-flex align-items-center next_btn">Next<i
+                                                        class="btn btn-sm btn-dark d-inline-flex align-items-center next_btn"
+                                                        onclick="cart.load">Next<i
                                                             class="ti ti-arrow-right ms-1"></i></a>
                                                 </div>
                                             </div>
                                         </fieldset>
                                         <!-- /Personal Information -->
 
-                                        <!-- Cart -->
-                                        <fieldset class="booking-content" id="cartlist">
-                                            <div class="book-card">
-                                                <div
-                                                    class="d-flex align-items-center justify-content-between flex-wrap booking-title">
-                                                    <div class="d-flex align-items-center mb-2">
-                                                        <h6 class="fs-16 me-2 mb-2">Cart</h6>
-                                                    </div>
-                                                    <div class="d-flex align-items-center flex-wrap mb-2">
-                                                        <a href="javascript:void(0);"
-                                                            class="btn btn-sm btn-secondary d-inline-flex align-items-center prev_btn fs-10 mb-2 me-2"><i
-                                                                class="ti ti-circle-plus me-1"></i>Add New Booking</a>
-                                                        <div class="dropdown mb-2">
-                                                            <a href="javascript:void(0);"
-                                                                class="bg-light-500 d-inline-flex align-items-center"
-                                                                data-bs-toggle="dropdown">
-                                                                <i class="ti ti-shopping-cart me-1"></i>Cart<span
-                                                                    class="bg-primary num-count ms-1">1</span>
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-sm p-3">
-                                                                <h6 class="fs-13 mb-3">Added In Cart (02)</h6>
-                                                                <div
-                                                                    class="d-flex align-items-center p-2 bg-light rounded mb-3">
-                                                                    <span class="avatar avatar-lg">
-                                                                        <img src="{{ asset('assets_front') }}/img/services/addservice-05.jpg"
-                                                                            alt="img">
-                                                                    </span>
-                                                                    <div class="ms-2">
-                                                                        <h6 class="mb-1">Lighting Services</h6>
-                                                                        <p class="fs-12"><i
-                                                                                class="ti ti-star-filled text-warning me-1"></i><span
-                                                                                class="text-gray-9">4.9</span> (255
-                                                                            reviews)</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div
-                                                                    class="mb-2 d-flex align-items-center justify-content-between">
-                                                                    <div>
-                                                                        <h6 class="fw-medium">Lighting Services</h6>
-                                                                        <p class="fs-10">30 Min</p>
-                                                                    </div>
-                                                                    <h6 class="fs-12 fw-medium">$457</h6>
-                                                                </div>
-                                                                <div
-                                                                    class="mb-2 d-flex align-items-center justify-content-between">
-                                                                    <div>
-                                                                        <h6 class="fw-medium">Outlets & Wiring</h6>
-                                                                        <p class="fs-10">30 Min</p>
-                                                                    </div>
-                                                                    <h6 class="fs-12 fw-medium">$200</h6>
-                                                                </div>
-                                                                <div
-                                                                    class="mb-0 d-flex align-items-center justify-content-between">
-                                                                    <div>
-                                                                        <h6 class="fw-medium">Switches Changes</h6>
-                                                                        <p class="fs-10">30 Min</p>
-                                                                    </div>
-                                                                    <h6 class="fs-12 fw-medium">$100</h6>
-                                                                </div>
-                                                                <div
-                                                                    class="d-flex align-items-center justify-content-between border-top pt-3 mt-3">
-                                                                    <div>
-                                                                        <h6 class="fw-medium">Total</h6>
-                                                                    </div>
-                                                                    <h6 class="fw-medium">$757</h6>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
 
-                                                <div class="row g-3">
-                                                    <div class="col-md-12">
-                                                        <div class="card flex-fill">
-                                                            <div
-                                                                class="card-body p-3 d-flex justify-content-between flex-column">
-                                                                <div>
-                                                                    <div
-                                                                        class="d-flex align-items-center p-3 bg-light-400 rounded mb-2">
-                                                                        <span class="avatar avatar-lg">
-                                                                            <img src="{{ asset('assets_front') }}/img/services/{{ $service->service_img ?? 'default.png' }}"
-                                                                                alt="img">
-                                                                        </span>
-                                                                        <div class="ms-2 flex-grow-1">
-                                                                            <h6 class="fs-14 fw-medium mb-1">
-                                                                                {{ $service->title ?? '' }}</h6>
-                                                                            <p class="mb-0">30 Minutes</p>
-
-
-                                                                        </div>
-                                                                        <div class="text-end ms-auto "
-                                                                            style="padding-right: 60px">
-                                                                            <h6 class="fs-12 fw-medium text-primary">
-                                                                                ${{ $service->price ?? '' }}</h6>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="mb-2">
-                                                                        <h6 class="fw-medium mb-1">Additional Services:
-                                                                        </h6>
-                                                                        <div class="additional-service"></div>
-                                                                    </div>
-                                                                    <div class="mb-2">
-                                                                        <h6 class="fw-medium mb-1">Provider Address
-                                                                        </h6>
-                                                                        <p>{{ $provider->address ?? '' }}</p>
-                                                                    </div>
-                                                                    <div class="mb-2">
-                                                                        <h6 class="fw-medium mb-1">Provider</h6>
-                                                                        <p>{{ $provider->business_name ?? '' }}</p>
-                                                                    </div>
-                                                                    <div class="mb-2">
-                                                                        <h6 class="fw-medium mb-1">Date & Time</h6>
-                                                                        <p id="datetime">Sun 16 July 2023 at 5:00pm
-                                                                        </p>
-                                                                    </div>
-                                                                    <div class="mb-0">
-                                                                        <h6 class="fw-medium mb-1">Amount</h6>
-                                                                        <span class="badge badge-dark"
-                                                                            id="total">$000</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-center border-top pt-3 mt-3">
-                                                                    <a href="javascript:void(0);"
-                                                                        class="d-inline-flex align-items-center link-danger fs-12">
-                                                                        <i class="ti ti-trash me-1"></i>Remove
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                            <div class="booking-footer d-flex align-items-center justify-content-end">
-                                                <div class="d-flex align-items-center">
-                                                    <a href="javascript:void(0);"
-                                                        class="btn btn-sm btn-light d-inline-flex align-items-center prev_btn me-2"><i
-                                                            class="ti ti-arrow-left me-1"></i>Prev</a>
-                                                    <a href="javascript:void(0);"
-                                                        class="btn btn-sm btn-dark d-inline-flex align-items-center next_btn">Next<i
-                                                            class="ti ti-arrow-right ms-1"></i></a>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                        <!-- /Cart -->
 
                                         <!-- Payment Method -->
                                         <fieldset class="booking-content">
@@ -1070,67 +925,72 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="card total-card">
+
                                                             <div
                                                                 class="card-body p-3 d-flex justify-content-between flex-column">
                                                                 <div>
                                                                     <div
-                                                                        class="mb-2 d-flex align-items-center justify-content-between">
-                                                                        <div>
-                                                                            <h6 class="fw-medium">Lighting Services
-                                                                            </h6>
-                                                                            <p class="fs-10">30 Min</p>
+                                                                        class="mb-2 align-items-center justify-content-between finalcart">
+                                                                        {{-- <div>
+                                                                            <h6 class="fw-medium" id="service-name">
+                                                                                Lighting Services</h6>
+                                                                            <p class="fs-10" id="service-duration">30
+                                                                                Min</p>
                                                                         </div>
-                                                                        <h6 class="fs-12 fw-medium">$457</h6>
-                                                                    </div>
-                                                                    <div
-                                                                        class="mb-2 d-flex align-items-center justify-content-between">
-                                                                        <div>
-                                                                            <h6 class="fw-medium">Outlets & Wiring</h6>
-                                                                            <p class="fs-10">30 Min</p>
-                                                                        </div>
-                                                                        <h6 class="fs-12 fw-medium">$200</h6>
-                                                                    </div>
-                                                                    <div
-                                                                        class="mb-0 d-flex align-items-center justify-content-between">
-                                                                        <div>
-                                                                            <h6 class="fw-medium">Switches Changes</h6>
-                                                                            <p class="fs-10">30 Min</p>
-                                                                        </div>
-                                                                        <h6 class="fs-12 fw-medium">$100</h6>
+                                                                        <h6 class="fs-12 fw-medium"
+                                                                            id="service-price">$457</h6> --}}
                                                                     </div>
                                                                 </div>
                                                                 <div>
                                                                     <div class="total-wrap">
+                                                                        <!-- Sub Total -->
                                                                         <div
                                                                             class="mb-2 d-flex align-items-center justify-content-between">
-                                                                            <h6 class="fw-medium">Sub Total</h6>
-                                                                            <p class="text-gray-9">$757</p>
+                                                                            <h6 class="fw-medium ">Sub Total</h6>
+                                                                            <p class="text-gray-9 subtotal"
+                                                                                id="sub-total">
+                                                                                $0.00</p>
                                                                         </div>
+                                                                        <!-- Tax (GST 5%) -->
                                                                         <div
                                                                             class="mb-2 d-flex align-items-center justify-content-between">
                                                                             <h6 class="fw-medium">Tax <span
                                                                                     class="text-default fw-normal">(GST
                                                                                     5%)</span></h6>
-                                                                            <p class="text-gray-9">$60</p>
+                                                                            <p class="text-gray-9" id="tax-amount">
+                                                                                $0.00</p>
                                                                         </div>
+                                                                        <!-- Discount -->
                                                                         <div
                                                                             class="mb-2 d-flex align-items-center justify-content-between">
-                                                                            <h6 class="fw-medium">Discount <span
-                                                                                    class="text-default fw-normal">15%</span>
+                                                                            <h6 class="fw-medium">Discount
+                                                                                {{-- <span
+                                                                                    class="text-default fw-normal">15%</span> --}}
                                                                             </h6>
-                                                                            <p class="text-gray-9">$757</p>
+                                                                            <input type="number" id="manual-discount"
+                                                                                class="form-control w-40"
+                                                                                placeholder="Enter discount" />
+                                                                            <p class="text-gray-9"
+                                                                                id="discount-amount">$0.00</p>
                                                                         </div>
+                                                                        <!-- Total -->
                                                                         <div
                                                                             class="d-flex align-items-center justify-content-between">
-                                                                            <h6 class="fs-14">Total</h6>
-                                                                            <h6 class="fs-14">$757</h6>
+                                                                            <h6 class="fs-14 ">Total</h6>
+                                                                            <h6 class="fs-14 grandtotal">$0.00
+                                                                            </h6>
                                                                         </div>
                                                                     </div>
                                                                     <a href="javascript:void(0);" id="pay-btn"
-                                                                        class="btn btn-light w-100 next_btn">Pay
-                                                                        $757</a>
+                                                                        class="btn btn-light w-100 next_btn grandtotal">Pay
+                                                                        $0.00</a>
                                                                 </div>
                                                             </div>
+
+
+
+
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1152,11 +1012,12 @@
                                                                     class="d-flex align-items-center justify-content-between flex-wrap p-2 bg-light-300 rounded mb-3">
                                                                     <div class="d-flex align-items-center pb-2">
                                                                         <span class="avatar avatar-xl flex-shrink-0">
-                                                                            <img src="{{ asset('assets_front') }}/img/services/addservice-05.jpg"
+                                                                            <img src="{{ asset('assets_front') }}/img/services/{{ $service->service_img ?? 'default.png' }}"
                                                                                 alt="img">
                                                                         </span>
                                                                         <div class="ms-2">
-                                                                            <h6 class="mb-1">Lighting Services</h6>
+                                                                            <h6 class="mb-1">
+                                                                                {{ $service->title ?? '' }}</h6>
                                                                             <p>Booking ref. <span
                                                                                     class="text-primary">#65742695</span>
                                                                             </p>
@@ -1173,72 +1034,59 @@
                                                                     </div>
                                                                     <h6 class="fs-12 fw-medium">$457</h6>
                                                                 </div>
+
+                                                            </div>
+
+                                                            <div class="border-top pt-2">
                                                                 <div
                                                                     class="mb-2 d-flex align-items-center justify-content-between">
-                                                                    <div>
-                                                                        <h6 class="fw-medium">Outlets & Wiring</h6>
-                                                                        <p class="fs-10">30 Min</p>
-                                                                    </div>
-                                                                    <h6 class="fs-12 fw-medium">$200</h6>
+                                                                    <h6 class="fw-medium">Sub Total</h6>
+                                                                    <p>$757</p>
                                                                 </div>
                                                                 <div
-                                                                    class="mb-0 d-flex align-items-center justify-content-between">
-                                                                    <div>
-                                                                        <h6 class="fw-medium">Switches Changes</h6>
-                                                                        <p class="fs-10">30 Min</p>
-                                                                    </div>
-                                                                    <h6 class="fs-12 fw-medium">$100</h6>
-                                                                </div>
-                                                                <div class="border-top pt-2">
-                                                                    <div
-                                                                        class="mb-2 d-flex align-items-center justify-content-between">
-                                                                        <h6 class="fw-medium">Sub Total</h6>
-                                                                        <p>$757</p>
-                                                                    </div>
-                                                                    <div
-                                                                        class="mb-2 d-flex align-items-center justify-content-between">
-                                                                        <h6 class="fw-medium">Tax</h6>
-                                                                        <p>$60</p>
-                                                                    </div>
-                                                                    <div
-                                                                        class="mb-2 d-flex align-items-center justify-content-between">
-                                                                        <h6 class="fw-medium">Discount</h6>
-                                                                        <p>$757</p>
-                                                                    </div>
+                                                                    class="mb-2 d-flex align-items-center justify-content-between">
+                                                                    <h6 class="fw-medium">Tax</h6>
+                                                                    <p>$60</p>
                                                                 </div>
                                                                 <div
-                                                                    class="border-top pt-2 d-flex align-items-center justify-content-between">
-                                                                    <h6 class="fs-14">Total</h6>
-                                                                    <h6 class="fs-14">$757</h6>
+                                                                    class="mb-2 d-flex align-items-center justify-content-between">
+                                                                    <h6 class="fw-medium">Discount</h6>
+                                                                    <p>$757</p>
                                                                 </div>
                                                             </div>
+                                                            <div
+                                                                class="border-top pt-2 d-flex align-items-center justify-content-between">
+                                                                <h6 class="fs-14">Total</h6>
+                                                                <h6 class="fs-14">$757</h6>
+                                                            </div>
                                                         </div>
-                                                        <div
-                                                            class="d-flex align-items-center justify-content-center flex-wrap">
-                                                            <a href="javascript:void(0);"
-                                                                class="btn btn-sm btn-info d-inline-flex align-items-center me-3 mt-3"><i
-                                                                    class="ti ti-calendar me-1"></i>Add to Calendar</a>
-                                                            <a href="booking.html"
-                                                                class="btn btn-sm btn-primary d-inline-flex align-items-center mt-3"><i
-                                                                    class="ti ti-circle-plus me-1"></i>Start New
-                                                                Booking</a>
-                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="d-flex align-items-center justify-content-center flex-wrap">
+                                                        <a href="javascript:void(0);"
+                                                            class="btn btn-sm btn-info d-inline-flex align-items-center me-3 mt-3"><i
+                                                                class="ti ti-calendar me-1"></i>Add to Calendar</a>
+                                                        <a href="booking.html"
+                                                            class="btn btn-sm btn-primary d-inline-flex align-items-center mt-3"><i
+                                                                class="ti ti-circle-plus me-1"></i>Start New
+                                                            Booking</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </fieldset>
-                                        <!-- /Confirmation -->
-
                                     </div>
+                                    </fieldset>
+                                    <!-- /Confirmation -->
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- /Booking -->
-
             </div>
+            <!-- /Booking -->
+
         </div>
+    </div>
     </div>
     <!-- /Page Wrapper -->
 
@@ -1253,152 +1101,160 @@
 
 
     <script>
-        $(function() {
+        $(document).ready(function() {
+            const cart = new Cart('user_cart');
+            const datetimeKey = 'selected_datetime';
+            const formDataKey = 'form_data';
 
-            $(document).on('click', '.next_btn', function() {
-                addiitional_services_print();
-            })
+            /**
+             * Updates the cart item count in the UI
+             */
+            function updateCartLength() {
+                let items = cart.getCart() || [];
+                $('.num-count').text(items.length);
+            }
 
+            /**
+             * Renders the cart items and updates the total price
+             */
+            function renderCart() {
+                let cartItems = cart.getCart() || [];
+                let cartHtml = '';
+                let total = 0; // Initialize total price
 
+                if (cartItems.length) {
+                    cartItems.forEach(item => {
+                        let itemPrice = parseFloat(item.price) || 0;
+                        let itemQty = parseInt(item.qty) || 1;
+                        let itemDiscount = parseFloat(item.total_discount) || 0;
 
-            function addiitional_services_print() {
+                        let itemSubtotal = (itemPrice * itemQty) -
+                            itemDiscount; // Corrected subtotal calculation
+                        total += itemSubtotal; // Add correct subtotal to total sum
 
-                const cart = new Cart('user_cart');
-
-                let additional_services = cart.getCart('user_cart');
-                let htmlservices = ''; // initialize an empty string
-
-
-                console.log(additional_services);
-
-
-                let subtotal = additional_services.reduce((acc, item) => acc += item.subtotal, 0);
-
-
-                if (additional_services?.length) {
-                    additional_services.forEach(item => {
-                        htmlservices += `
-                            <div class="cart-item border-bottom pb-3 mb-3 row align-items-center">
-                            <div class="col-8">
-                                <h6 class="fw-medium mb-1">${item.name}</h6>
-                                <p class="fs-10 text-gray-7">30 Min</p>
-                                <p class="fw-bold">Qty:${item.qty}</p>
-                            </div>
-                            <div class="col-3 text-end">
-                                <h6 class="fs-12 fw-medium text-primary">${item.subtotal}</h6>
-                            </div>
-                            <div class="col-1 text-end">
-                                <button class="delete-item btn btn-sm p-0 text-danger" data-id="5" title="Remove">
-                                    <i class="ti ti-trash fs-14"></i>
-                                </button>
-                            </div>
-                            </div>
-                            `; // append the HTML for each item
+                        cartHtml += `
+                <div class="cart-item border-bottom pb-3 mb-3 row align-items-center">
+                    <div class="col-8">
+                        <h6 class="fw-medium mb-1">${item.name}</h6>
+                        <p class="fs-10 text-gray-7">30 Min</p>
+                        <p class="fw-bold">Qty: ${itemQty}</p>
+                    </div>
+                    <div class="col-3 text-end">
+                        <h6 class="fs-12 fw-medium text-primary">$${itemSubtotal.toFixed(2)}</h6>
+                    </div>
+                    <div class="col-1 text-end">
+                        <button class="delete-item btn btn-sm p-0 text-danger" data-id="${item.item_id}" data-type="${item.type}" title="Remove">
+                            <i class="ti ti-trash fs-14"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
                     });
-
+                } else {
+                    cartHtml = '<p class="text-center">Your cart is empty.</p>';
                 }
-                // $('.additional-service').append(htmlservices); // insert the HTML into the target element
-                $('.cart-items-wrap').html(htmlservices); // insert the HTML into the target element
-                $('.total').html("$" + subtotal); // insert the HTML into the target element
 
-
-                // console.log(htmlservices);
-                // console.log("function called");
+                $('.cart-items-wrap').html(cartHtml);
+                $('.total').html(`$${total.toFixed(2)}`); // Display total
+                updateCartLength();
 
             }
-        })
 
-
-        // set data on cart
-        $(document).ready(function() {
-            function updateCartLength() {
-                let cart = new Cart('user_cart');
-
-                let items = cart.getCart();
-                let cartLength = items ? items.length : 0;
-                $('.num-count').text(cartLength);
-            }
-
-            updateCartLength();
-        });
-
-
-        //set provider on local storage
-        $(document).on('click', '.provider', function() {
-            let providerData = $(this).data('provider');
-            if (providerData) {
-                if (typeof providerData === 'string') {
-                    try {
-                        providerData = JSON.parse(providerData);
-                    } catch (error) {
-                        console.error("Invalid JSON data in provider attribute:", error);
-                        return;
-                    }
-                }
-                localStorage.setItem('selected_provider', JSON.stringify(providerData));
-            }
-        });
-
-
-        $(document).ready(function() {
-            let cart = new Cart('user_cart');
-
-
-            // Update the cart length when called
-            function updateCartLength() {
-                let items = cart.getCart();
-                // console.log(items[0].price);
-                $('.num-count').text(items?.length ?? 0);
-            }
-
-            // Initial call to update cart length on page load
-            updateCartLength();
-
-            // Handle the add service button click
+            /**
+             * Adds service to the cart (handles both service and additional service)
+             */
             $(document).on('click', '.add_addservie', function(e) {
                 e.preventDefault();
-
                 let serviceContainer = $(this).closest('.select-item');
                 let id = $(this).data('id');
+                let type = $(this).data('type'); // Identify if it's a service or an additional service
 
-                // Get service details
+                let price = parseFloat(serviceContainer.find('.text-gray-9').text().replace('$', '')) || 0;
+
                 let service = {
                     item_id: id,
+                    type: type, // Store the type to differentiate items
                     name: serviceContainer.find('h6').text().trim(),
-                    price: parseFloat(serviceContainer.find('.text-gray-9').text().replace('$', '')),
+                    price: price,
                     qty: 1,
-                    subtotal: parseFloat(serviceContainer.find('.text-gray-9').text().replace('$',
-                        '')) // Subtotal is same as price here
+                    total_discount: 0, // Ensure discount is set correctly
+                    subtotal: price // Subtotal is the price initially
                 };
 
-                // Save the service to cart and update the cart length
                 cart.save(service);
-                updateCartLength();
+                renderCart();
             });
-        });
 
+            /**
+             * Deletes an item from the cart (differentiates by item_id and type)
+             */
+            $(document).on('click', '.delete-item', function() {
+                let itemId = $(this).data('id');
+                let itemType = $(this).data('type');
 
-        //set date and time on local storage
-        $(document).ready(function() {
-            var datetimekey = 'selected_datetime';
+                cart.delItem(itemId, itemType); // Update the function to delete based on type too
+                renderCart();
+            });
 
-            flatpickr("#datepick", {
-                dateFormat: "Y-m-d",
-                onChange: function(selectedDates, dateStr, instance) {
-                    var selectedDate = dateStr.trim();
-                    if (selectedDate) {
-                        var selectedData = {
-                            date: selectedDate,
-                            time: []
-                        };
-                        localStorage.setItem(datetimekey, JSON.stringify(selectedData));
+            /**
+             * Load and display provider details from localStorage
+             */
+            function loadProviderDetails() {
+                setTimeout(() => {
+                    let selectedProvider = JSON.parse(localStorage.getItem('selected_provider')) || {};
+                    $('.provider-address').text(selectedProvider.address || 'Not Found');
+                    $('.provider-name').text(selectedProvider.business_name || 'Not Found');
+                }, 100);
+            }
+
+            /**
+             * Event: Store selected provider details in localStorage
+             */
+            $(document).on('click', '.provider', function() {
+                let providerData = $(this).data('provider');
+                if (providerData) {
+                    try {
+                        providerData = typeof providerData === 'string' ? JSON.parse(providerData) :
+                            providerData;
+                        localStorage.setItem('selected_provider', JSON.stringify(providerData));
+                        loadProviderDetails(); // Update UI immediately
+                    } catch (error) {
+                        console.error("Invalid JSON data in provider attribute:", error);
                     }
                 }
             });
 
-            $(".time-item").on("click", function() {
-                var selectedTime = $(this).find("h6").text().trim();
-                var selectedData = JSON.parse(localStorage.getItem(datetimekey)) || {};
+            /**
+             * Initialize date picker
+             */
+            flatpickr("#datepick", {
+                dateFormat: "Y-m-d",
+                onChange: function(selectedDates, dateStr) {
+                    localStorage.setItem(datetimeKey, JSON.stringify({
+                        date: dateStr.trim(),
+                        time: []
+                    }));
+                    loadDateTimeSelection();
+                }
+            });
+
+            /**
+             * Load and display selected date and time from localStorage
+             */
+            function loadDateTimeSelection() {
+                setTimeout(() => {
+                    let selectedDatetime = JSON.parse(localStorage.getItem(datetimeKey)) || {};
+                    $('#booking-date').text(selectedDatetime.date || 'Date Not Selected');
+                    $('#booking-time').text(selectedDatetime.time?.join(", ") || 'Time Not Selected');
+                }, 100);
+            }
+
+            /**
+             * Event: Select or deselect a time slot
+             */
+            $(document).on("click", ".time-item", function() {
+                let selectedTime = $(this).find("h6").text().trim();
+                let selectedData = JSON.parse(localStorage.getItem(datetimeKey)) || {};
 
                 if (selectedData.date) {
                     if (!selectedData.time.includes(selectedTime)) {
@@ -1408,88 +1264,16 @@
                         selectedData.time = selectedData.time.filter(time => time !== selectedTime);
                         $(this).removeClass('selected');
                     }
-                    localStorage.setItem(datetimekey, JSON.stringify(selectedData));
+                    localStorage.setItem(datetimeKey, JSON.stringify(selectedData));
+                    loadDateTimeSelection();
                 } else {
                     alert('Please select a date first.');
                 }
             });
-        });
 
-        //add additional services to cart
-        $(document).ready(function() {
-            const cart = new Cart('user_cart');
-
-            function renderCart() {
-                let cartItems = cart.getCart();
-                var cartHtml = '';
-
-                if (cartItems) {
-
-
-                    cartItems.forEach(function(item) {
-                        let subtotal = (item.price * item.qty) - (item.total_discount || 0);
-                        cartHtml += `
-                            <div class="cart-item border-bottom pb-3 mb-3 row align-items-center">
-                                <div class="col-8">
-                                    <h6 class="fw-medium mb-1">${item.name}</h6>
-                                    <p class="fs-10 text-gray-7">30 Min</p>
-                                    <p class="fw-bold">Qty: ${item.qty}</p>
-                                </div>
-                                <div class="col-3 text-end">
-                                    <h6 class="fs-12 fw-medium text-primary">$${subtotal.toFixed(2)}</h6>
-                                </div>
-                                <div class="col-1 text-end">
-                                    <button class="delete-item btn btn-sm p-0 text-danger" data-id="${item.item_id}" title="Remove">
-                                        <i class="ti ti-trash fs-14"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        `;
-                    });
-                } else {
-                    cartHtml = '<p class="text-center">Your cart is empty.</p>';
-                }
-
-                $('.cart-items-wrap').html(cartHtml);
-                updateCartLength();
-            }
-
-            function updateCartLength() {
-                let cartItems = cart.getCart() || [];
-                $('.num-count').text(cartItems.length);
-
-            }
-
-            renderCart();
-
-
-            $(document).on('click', '.delete-item', function() {
-                let itemId = $(this).data('id');
-                cart.delItem(itemId);
-                renderCart();
-            });
-
-            //providers and time slot
-
-            var selectedProvider = JSON.parse(localStorage.getItem('selected_provider'));
-
-            $('.provider-address').text(selectedProvider.address || 'Not Found');
-            $('.provider-name').text(selectedProvider.business_name || 'Not Found');
-
-
-            var selectedDatetime = JSON.parse(localStorage.getItem('selected_datetime'));
-
-            $('#booking-date').text(selectedDatetime.date || 'Date Not Selected');
-            $('#booking-time').text(selectedDatetime.time || 'Time Not Selected');
-
-        });
-
-
-        //set form data on local storage
-
-        $(document).ready(function() {
-            const formDataKey = 'form_data';
-
+            /**
+             * Auto-save form data to localStorage on input change
+             */
             function saveFormData() {
                 const formData = {
                     firstName: $('#firstName').val(),
@@ -1505,31 +1289,157 @@
                 localStorage.setItem(formDataKey, JSON.stringify(formData));
             }
 
-            $('input, textarea').on('input', function() {
-                saveFormData();
-            });
+            // Listen for input changes to save form data
+            $('input, textarea').on('input', saveFormData);
 
-            function populateFormFromStorage() {
-                const savedData = JSON.parse(localStorage.getItem(formDataKey));
-
-                if (savedData) {
-                    $('#firstName').val(savedData.firstName || '');
-                    $('#lastName').val(savedData.lastName || '');
-                    $('#email').val(savedData.email || '');
-                    $('#phone').val(savedData.phone || '');
-                    $('#streetAddress').val(savedData.streetAddress || '');
-                    $('#city').val(savedData.city || '');
-                    $('#state').val(savedData.state || '');
-                    $('#postalCode').val(savedData.postalCode || '');
-                    $('#bookingNotes').val(savedData.bookingNotes || '');
-                }
+            /**
+             * Load saved form data from localStorage
+             */
+            function loadFormData() {
+                const savedData = JSON.parse(localStorage.getItem(formDataKey)) || {};
+                $('#firstName').val(savedData.firstName || '');
+                $('#lastName').val(savedData.lastName || '');
+                $('#email').val(savedData.email || '');
+                $('#phone').val(savedData.phone || '');
+                $('#streetAddress').val(savedData.streetAddress || '');
+                $('#city').val(savedData.city || '');
+                $('#state').val(savedData.state || '');
+                $('#postalCode').val(savedData.postalCode || '');
+                $('#bookingNotes').val(savedData.bookingNotes || '');
             }
-            populateFormFromStorage();
+
+            /**
+             * Initialize UI by loading stored data
+             */
+            renderCart();
+            loadProviderDetails();
+            loadDateTimeSelection();
+            loadFormData();
+
+
+
+
 
 
         });
-    </script>
 
+        $(document).ready(function() {
+
+            // Function to render the cart and update the total
+            function finalrenderCart() {
+                const cart = new Cart('user_cart');
+
+                function renderCart() {
+                    let cart2 = cart.getCart();
+
+                    let finalcart = '';
+                    let total = 0;
+
+                    if (cart2.length) {
+                        cart2.forEach(item => {
+                            let itemPrice = parseFloat(item.price) || 0;
+                            let itemQty = parseInt(item.qty) || 1;
+                            let itemDiscount = parseFloat(item.total_discount) || 0;
+
+                            let itemSubtotal = (itemPrice * itemQty) - itemDiscount;
+                            total += itemSubtotal;
+
+                            finalcart += `
+                    <div>
+                        <h6 class="fw-medium" id="service-name">
+                            ${item.name}<span class="float-end">$${itemSubtotal.toFixed(2)}</span>
+                        </h6>
+                        <p class="fw-bold">Qty: ${itemQty}</p>
+                    </div>
+                    <br> 
+                `;
+                        });
+                    } else {
+                        finalcart = '<p class="text-center">Your cart is empty.</p>';
+                    }
+
+                    $('.finalcart').html(finalcart);
+
+                    let tax = total * 0.05; // Tax is fixed at 5% of the total amount
+
+                    let manualDiscount = parseFloat($('#manual-discount').val()) || 0;
+
+                    let finalTotal = total + tax - manualDiscount;
+
+                    // Update the values in the HTML
+                    $('.subtotal').html(`$${total.toFixed(2)}`);
+                    $('#tax-amount').html(`(+)$${tax.toFixed(2)}`); // Display tax as 5% of the subtotal
+                    $('#discount-amount').html(`(-)$${manualDiscount.toFixed(2)}`);
+                    $('.grandtotal').html(`$${finalTotal.toFixed(2)}`);
+                }
+
+                setInterval(() => {
+                    renderCart();
+                }, 500);
+
+            }
+
+            finalrenderCart();
+        });
+
+        // Function to render the cart and update the total for customer
+
+        // $(document).ready(function() {
+
+        //     function renderInvoice() {
+        //         const cart = new Cart('user_cart');
+
+        //         function updateCart() {
+        //             let cartItems = cart.getCart();
+
+        //             let cartContent = '';
+        //             let totalAmount = 0;
+
+        //             if (cartItems.length) {
+        //                 cartItems.forEach(item => {
+        //                     let itemPrice = parseFloat(item.price) || 0;
+        //                     let itemQuantity = parseInt(item.qty) || 1;
+        //                     let itemDiscount = parseFloat(item.total_discount) || 0;
+
+        //                     let itemTotal = (itemPrice * itemQuantity) - itemDiscount;
+        //                     totalAmount += itemTotal;
+
+        //                     cartContent += `
+        //             <div class="mb-2 d-flex align-items-center justify-content-between">
+        //                 <div>
+        //                     <h6 class="fw-medium">${item.name}</h6>
+        //                     <p class="fs-10">${item.duration || '30 Min'}</p>
+        //                 </div>
+        //                 <h6 class="fs-12 fw-medium">$${itemTotal.toFixed(2)}</h6>
+        //             </div>
+        //         `;
+        //                 });
+        //             } else {
+        //                 cartContent = '<p class="text-center">Your cart is empty.</p>';
+        //             }
+
+        //             $('.finalcart').html(cartContent);
+
+        //             let calculatedTax = totalAmount * 0.05;
+        //             let discountAmount = 20.00;
+
+        //             let finalAmount = totalAmount + calculatedTax - discountAmount;
+
+        //             $('.subtotal').html(`$${totalAmount.toFixed(2)}`);
+        //             $('.tax').html(`(+)$${calculatedTax.toFixed(2)}`);
+        //             $('.discount').html(`(-)$${discountAmount.toFixed(2)}`);
+        //             $('.grandtotal').html(`$${finalAmount.toFixed(2)}`);
+        //         }
+
+        //         setInterval(() => {
+        //             updateCart();
+        //         }, 500);
+
+        //     }
+
+        //     renderInvoice();
+        // });
+    </script>
 
 
     <!-- Cursor -->

@@ -644,6 +644,8 @@
                     var bookingUrl = $(this).attr('href');
                     window.location.href = bookingUrl; // Redirect to the specified URL
                 }
+
+                
             });
         });
     </script>

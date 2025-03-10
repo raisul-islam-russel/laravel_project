@@ -41,6 +41,8 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{ asset('assets_front') }}/css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     @yield('css')
 </head>
@@ -4431,6 +4433,16 @@
         data-cf-beacon='{"rayId":"90bf47f0eaf3786e","version":"2025.1.0","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"3ca157e612a14eccbb30cf6db6691c29","b":1}'
         crossorigin="anonymous"></script>
 
+
+    <script>
+        let items = cart.getCart() || [];
+        $('.num-count').text(items.length);
+        alert(j);
+
+        $(function() {
+            alert(j);
+        })
+    </script>
     @yield('script')
 
 </body>

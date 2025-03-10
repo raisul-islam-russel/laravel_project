@@ -44,17 +44,17 @@
                         <a href="/">Home </a>
                     <li><a href="{{ url('about-us') }}">About</a></li>
                     <li>
-                        <a href="{{ url('blogs') }}">Blog</a>
+                        <a href="{{ url('blog') }}">Blog</a>
                     <li><a href="{{ url('services') }}">Services</a></li>
-                    <li><a href="{{ url('contact-us') }}">Contact Us</a></li>
+                    <li><a href="{{ url('contact') }}">Contact Us</a></li>
                     <li><a href="{{ url('how-it-works') }}">How It Works</a></li>
                     <li><a href="{{ url('provider-register') }}">Become a Provider</a></li>
 
                     <li>
                         <a href="javascript:void(0);" class=" d-inline-flex align-items-center"
                             data-bs-toggle="dropdown">
-                            <i class="ti ti-shopping-cart me-1"></i>Cart<span
-                                class=" cart bg-primary num-count ms-1">0</span>
+                            <i class="ti ti-shopping-cart  me-1"></i>Cart<span
+                                class=" cart bg-primary num-count cartitmes ms-1">0</span>
                         </a>
                     </li>
 
@@ -79,3 +79,12 @@
         </nav>
     </div>
 </header>
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+{{-- 
+<script>
+    $(document).ready(function() {
+        alert('Hello')
+        let items = cart.getCart() || [];
+                $('.cartitmes').text(items.length);
+    })
+</script> --}}

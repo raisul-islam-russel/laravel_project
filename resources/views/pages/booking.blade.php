@@ -58,7 +58,7 @@
                                 <div class="row">
 
                                     <!-- Booking Sidebar -->
-                                    <div class="col-lg-3 theiaStickySidebar">
+                                    <div class="col-lg-3 theiaStickySidebar mt-4">
                                         <div class="card bg-dark booking-sidebar mb-4 mb-lg-0">
                                             <div class="card-body">
                                                 <h6 class="text-white fs-14 mb-2">Service Details</h6>
@@ -103,8 +103,8 @@
                                                     </ul>
                                                 </div>
                                                 <div class="status-report">
-                                                    <h6 class="text-white fs-14 mb-2 pb-2">Bookings</h6>
-                                                    <p class="fs-10">0% complete</p>
+                                                    <h6 class="text-white fs-14 mb-2 pb-2">Your Booking In Progress</h6>
+                                                    {{-- <p class="fs-10">0% complete</p> --}}
                                                 </div>
                                                 <div class="text-center">
                                                     <p class="fs-10 text-white">Already have an account? <a
@@ -127,7 +127,7 @@
                                                     <div class="d-flex align-items-center mb-2">
                                                         <h6 class="fs-16 me-2 mb-2">Select Provider</h6>
                                                         <span class="badge badge-info-transparent mb-2">Total :
-                                                            09</span>
+                                                            12</span>
                                                     </div>
                                                     <div class="d-flex align-items-center mb-2">
                                                         <div class="dropdown loc-dropdown me-2 mb-2">
@@ -250,9 +250,9 @@
                                                     </label>
                                                 </div>
                                                 <div class="d-flex align-items-center">
-                                                    {{-- <a href="javascript:void(0);" class="btn btn-sm btn-light d-inline-flex align-items-center prev_btn me-2"><i class="ti ti-arrow-left me-1"></i>Prev</a> --}}
+                                                    <a href="javascript:void(0);" class="btn_check_out btn btn-sm btn-light d-inline-flex align-items-center "><i class="ti ti-arrow-left me-1"></i>Prev</a>
                                                     <a href="javascript:void(0);"
-                                                        class="btn btn-sm btn-dark d-inline-flex align-items-center next_btn">Next<i
+                                                        class="btn btn-sm btn-dark d-inline-flex align-items-center next_btn btn_check">Next<i
                                                             class="ti ti-arrow-right ms-1"></i></a>
                                                 </div>
                                             </div>
@@ -342,7 +342,7 @@
                                                                         <h6 class="mb-1 fs-12 fw-medium">
                                                                             {{ $add_service->name }}</h6>
                                                                         <p class="fs-10"><span
-                                                                                class="fs-12 text-gray-9 fw-medium">${{ $add_service->price }}</span>
+                                                                                class="fs-12 text-gray-9 fw-medium">{{ $add_service->price }}</span>
                                                                             / 30 min</p>
                                                                     </div>
                                                                 </div>
@@ -708,15 +708,21 @@
                                                             </div>
 
                                                             <div class="border-top pt-3 mt-3">
-                                                                <h6 class="mb-2">Booking Date & Time</h6>
+                                                                <h6 class="mb-2">
+                                                                    <i class="fas fa-calendar-alt"></i> Booking Date &
+                                                                    Time
+                                                                </h6>
+
                                                                 <p id="booking-date"
                                                                     class="mb-2 text-gray-9 fw-medium d-flex align-items-center">
-                                                                    <i class="feather-calendar me-2"></i>Fri, 12 Aug
+                                                                    <i class="fas fa-calendar-alt me-2 ms-1"></i> Fri,
+                                                                    12 Aug
                                                                     2024
                                                                 </p>
                                                                 <p id="booking-time"
                                                                     class="text-gray-9 fw-medium d-flex align-items-center">
-                                                                    <i class="feather-clock me-2"></i>08:30 AM - 09:00
+                                                                    <i class="fa-solid fa-clock me-2"></i>08:30 AM -
+                                                                    09:00
                                                                     AM
                                                                 </p>
 
@@ -811,8 +817,7 @@
                                                             class="ti ti-arrow-left me-1"></i>Prev</a>
                                                     <a href="javascript:void(0);"
                                                         class="btn btn-sm btn-dark d-inline-flex align-items-center next_btn"
-                                                        onclick="cart.load">Next<i
-                                                            class="ti ti-arrow-right ms-1"></i></a>
+                                                        onclick="">Next<i class="ti ti-arrow-right ms-1"></i></a>
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -982,7 +987,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <a href="javascript:void(0);" id="pay-btn"
-                                                                        class="btn btn-light w-100 next_btn grandtotal">Pay
+                                                                        class=" btn_process btn btn-light w-100 next_btn grandtotal">Pay
                                                                         $0.00</a>
                                                                 </div>
                                                             </div>
@@ -1005,7 +1010,8 @@
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <h6 class="fs-14 fw-medium mb-3">Your Booking is Successful on
-                                                            Sun 16 July 2024at 5:00pm</h6>
+                                                            <span class="booked-date">Sun 16 July 2024at 5:00pm</span>
+                                                        </h6>
                                                         <div class="card shadow-none mb-0">
                                                             <div class="card-body p-3">
                                                                 <div
@@ -1016,7 +1022,7 @@
                                                                                 alt="img">
                                                                         </span>
                                                                         <div class="ms-2">
-                                                                            <h6 class="mb-1">
+                                                                            <h6 class="mb-1">Service Name:
                                                                                 {{ $service->title ?? '' }}</h6>
                                                                             <p>Booking ref. <span
                                                                                     class="text-primary">#65742695</span>
@@ -1026,67 +1032,77 @@
                                                                     <span class="badge badge-success"><i
                                                                             class="ti ti-circle-check-filled me-1"></i>Confirmed</span>
                                                                 </div>
-                                                                <div
-                                                                    class="mb-2 d-flex align-items-center justify-content-between">
-                                                                    <div>
-                                                                        <h6 class="fw-medium">Lighting Services</h6>
+                                                                <div class="mb-2  ">
+                                                                    <div class="confirmedcart">
+                                                                        {{-- <div> --}}
+                                                                        {{-- <h6 class="fw-medium">Lighting Services</h6>
                                                                         <p class="fs-10">30 Min</p>
+                                                                        {{-- <h6 class="fs-12 fw-medium">$457</h6> --}}
+                                                                        {{-- </div> --}}
                                                                     </div>
-                                                                    <h6 class="fs-12 fw-medium">$457</h6>
+
                                                                 </div>
 
-                                                            </div>
+                                                                <div class="border-top pt-2">
+                                                                    <div
+                                                                        class="mb-2 d-flex align-items-center justify-content-between">
+                                                                        <h6 class="fw-medium ">Sub Total</h6>
+                                                                        <p class="subtotal"></p>
+                                                                    </div>
+                                                                    <div
+                                                                        class="mb-2 d-flex align-items-center justify-content-between">
+                                                                        <h6 class="fw-medium">Tax</h6>
+                                                                        <p class="tax"></p>
+                                                                    </div>
+                                                                    <div
+                                                                        class="mb-2 d-flex align-items-center justify-content-between">
+                                                                        <h6 class="fw-medium">Discount</h6>
+                                                                        <p class="discount-amount" id=""></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div
+                                                                    class="border-top pt-2 d-flex align-items-center justify-content-between">
+                                                                    <h6 class="fs-14 ">Total</h6>
+                                                                    <h6 class="grandtotal"></h6>
 
-                                                            <div class="border-top pt-2">
-                                                                <div
-                                                                    class="mb-2 d-flex align-items-center justify-content-between">
-                                                                    <h6 class="fw-medium">Sub Total</h6>
-                                                                    <p>$757</p>
                                                                 </div>
-                                                                <div
-                                                                    class="mb-2 d-flex align-items-center justify-content-between">
-                                                                    <h6 class="fw-medium">Tax</h6>
-                                                                    <p>$60</p>
+                                                                <div class="border-top pt-3 mt-3">
+                                                                    <h6 class="mb-2">
+                                                                        <i class="fas fa-calendar-alt"></i> Booking
+                                                                        Date &
+                                                                        Time
+                                                                    </h6>
+
+                                                                    <h6 class="booking-date-time "></h6>
                                                                 </div>
-                                                                <div
-                                                                    class="mb-2 d-flex align-items-center justify-content-between">
-                                                                    <h6 class="fw-medium">Discount</h6>
-                                                                    <p>$757</p>
-                                                                </div>
-                                                            </div>
-                                                            <div
-                                                                class="border-top pt-2 d-flex align-items-center justify-content-between">
-                                                                <h6 class="fs-14">Total</h6>
-                                                                <h6 class="fs-14">$757</h6>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div
-                                                        class="d-flex align-items-center justify-content-center flex-wrap">
-                                                        <a href="javascript:void(0);"
-                                                            class="btn btn-sm btn-info d-inline-flex align-items-center me-3 mt-3"><i
-                                                                class="ti ti-calendar me-1"></i>Add to Calendar</a>
-                                                        <a href="booking.html"
-                                                            class="btn btn-sm btn-primary d-inline-flex align-items-center mt-3"><i
-                                                                class="ti ti-circle-plus me-1"></i>Start New
-                                                            Booking</a>
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-center flex-wrap">
+                                                            <a href="javascript:void(0);"
+                                                                class="btn btn-sm btn-info d-inline-flex align-items-center me-3 mt-3"><i
+                                                                    class="ti ti-calendar me-1"></i>Add to Calendar</a>
+                                                            <a href="booking.html"
+                                                                class="btn btn-sm btn-primary d-inline-flex align-items-center mt-3"><i
+                                                                    class="ti ti-circle-plus me-1"></i>Start New
+                                                                Booking</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                    </div>
-                                    </fieldset>
-                                    <!-- /Confirmation -->
+                                        </fieldset>
+                                        <!-- /Confirmation -->
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- /Booking -->
+                <!-- /Booking -->
 
+            </div>
         </div>
-    </div>
     </div>
     <!-- /Page Wrapper -->
 
@@ -1140,7 +1156,7 @@
                         <p class="fw-bold">Qty: ${itemQty}</p>
                     </div>
                     <div class="col-3 text-end">
-                        <h6 class="fs-12 fw-medium text-primary">$${itemSubtotal.toFixed(2)}</h6>
+                        <h6 class="fs-12 fw-medium text-primary">${itemSubtotal.toFixed(2)}</h6>
                     </div>
                     <div class="col-1 text-end">
                         <button class="delete-item btn btn-sm p-0 text-danger" data-id="${item.item_id}" data-type="${item.type}" title="Remove">
@@ -1155,7 +1171,7 @@
                 }
 
                 $('.cart-items-wrap').html(cartHtml);
-                $('.total').html(`$${total.toFixed(2)}`); // Display total
+                $('.total').html(`${total.toFixed(2)}`); // Display total
                 updateCartLength();
 
             }
@@ -1246,8 +1262,15 @@
                     let selectedDatetime = JSON.parse(localStorage.getItem(datetimeKey)) || {};
                     $('#booking-date').text(selectedDatetime.date || 'Date Not Selected');
                     $('#booking-time').text(selectedDatetime.time?.join(", ") || 'Time Not Selected');
+                    $('.booking-date-time').text(
+                        `Your Booking Date & Time: ${selectedDatetime.date || 'Date Not Selected'} at ${selectedDatetime.time?.join(", ") || 'Time Not Selected'}`
+                    );
+
                 }, 100);
             }
+
+
+
 
             /**
              * Event: Select or deselect a time slot
@@ -1257,19 +1280,19 @@
                 let selectedData = JSON.parse(localStorage.getItem(datetimeKey)) || {};
 
                 if (selectedData.date) {
-                    if (!selectedData.time.includes(selectedTime)) {
-                        selectedData.time.push(selectedTime);
-                        $(this).addClass('selected');
-                    } else {
-                        selectedData.time = selectedData.time.filter(time => time !== selectedTime);
-                        $(this).removeClass('selected');
-                    }
+                    // Ensure only one time is selected at a time
+                    $(".time-item").removeClass("selected"); // Remove selection from all
+                    selectedData.time = [selectedTime]; // Store only the selected time
+
+                    $(this).addClass("selected"); // Highlight the newly selected time
+
                     localStorage.setItem(datetimeKey, JSON.stringify(selectedData));
                     loadDateTimeSelection();
                 } else {
-                    alert('Please select a date first.');
+                    alert("Please select a date first.");
                 }
             });
+
 
             /**
              * Auto-save form data to localStorage on input change
@@ -1333,6 +1356,7 @@
                     let cart2 = cart.getCart();
 
                     let finalcart = '';
+                    let confirmedcart = '';
                     let total = 0;
 
                     if (cart2.length) {
@@ -1347,11 +1371,30 @@
                             finalcart += `
                     <div>
                         <h6 class="fw-medium" id="service-name">
-                            ${item.name}<span class="float-end">$${itemSubtotal.toFixed(2)}</span>
+                            ${item.name}<span class="float-end">${itemSubtotal.toFixed(2)}</span>
                         </h6>
                         <p class="fw-bold">Qty: ${itemQty}</p>
                     </div>
                     <br> 
+                    
+
+                `;
+
+
+                            confirmedcart += `
+
+
+                 <div>
+                        <h6 class="fw-medium" id="service-name">
+                            ${item.name}<span class="float-end">${itemSubtotal.toFixed(2)}</span>
+                        </h6>
+                    
+                    </div>
+                    
+                            
+                                                              
+                    
+
                 `;
                         });
                     } else {
@@ -1359,6 +1402,7 @@
                     }
 
                     $('.finalcart').html(finalcart);
+                    $('.confirmedcart').html(confirmedcart);
 
                     let tax = total * 0.05; // Tax is fixed at 5% of the total amount
 
@@ -1367,10 +1411,12 @@
                     let finalTotal = total + tax - manualDiscount;
 
                     // Update the values in the HTML
-                    $('.subtotal').html(`$${total.toFixed(2)}`);
-                    $('#tax-amount').html(`(+)$${tax.toFixed(2)}`); // Display tax as 5% of the subtotal
-                    $('#discount-amount').html(`(-)$${manualDiscount.toFixed(2)}`);
-                    $('.grandtotal').html(`$${finalTotal.toFixed(2)}`);
+                    $('.subtotal').html(`${total.toFixed(2)}`);
+                    $('#tax-amount').html(`(+)${tax.toFixed(2)}`); // Display tax as 5% of the subtotal
+                    $('.tax').html(`(+)$${tax.toFixed(2)}`); // Display tax as 5% of the subtotal
+                    $('#discount-amount').html(`(-)${manualDiscount.toFixed(2)}`);
+                    $('.discount-amount').html(`(-)${manualDiscount.toFixed(2)}`);
+                    $('.grandtotal').html(`${finalTotal.toFixed(2)}`);
                 }
 
                 setInterval(() => {
@@ -1380,65 +1426,63 @@
             }
 
             finalrenderCart();
+
+            //dynamic order date
+
+            let today = new Date();
+            let options = {
+                weekday: 'short',
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            };
+            let formattedDate = today.toLocaleDateString('en-US', options);
+            let formattedTime = today.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+            });
+
+            let finalDateTime = `${formattedDate} at ${formattedTime}`;
+            // $('.invoice-date').html(finalDateTime);
+            $('.booked-date').text(finalDateTime);
+
+            $(document).on('click', ".btn_process, .btn_check_out", function() {
+                let user_cart = JSON.parse(localStorage.getItem('user_cart'));
+                let form_data = JSON.parse(localStorage.getItem('form_data'));
+                let selected_provider = JSON.parse(localStorage.getItem('selected_provider'));
+                let selected_datetime = JSON.parse(localStorage.getItem('selected_datetime'));
+
+                let item = {
+                    user_cart: user_cart,
+                    form_data: form_data,
+                    selected_provider: selected_provider,
+                    selected_datetime: selected_datetime,
+                }
+
+                $.ajax({
+                    url: "{{ url('api/process_booking') }}",
+                    type: 'POST',
+                    data: {
+                        user_cart: user_cart,
+                        form_data: form_data,
+                        selected_provider: selected_provider,
+                        selected_datetime: selected_datetime,
+                        _token: "{{ csrf_token() }}" // Pass CSRF token
+                    },
+                    success: function(res) {
+                        console.log(res);
+
+
+                    }
+
+
+                })
+            })
+
+
+
         });
-
-        // Function to render the cart and update the total for customer
-
-        // $(document).ready(function() {
-
-        //     function renderInvoice() {
-        //         const cart = new Cart('user_cart');
-
-        //         function updateCart() {
-        //             let cartItems = cart.getCart();
-
-        //             let cartContent = '';
-        //             let totalAmount = 0;
-
-        //             if (cartItems.length) {
-        //                 cartItems.forEach(item => {
-        //                     let itemPrice = parseFloat(item.price) || 0;
-        //                     let itemQuantity = parseInt(item.qty) || 1;
-        //                     let itemDiscount = parseFloat(item.total_discount) || 0;
-
-        //                     let itemTotal = (itemPrice * itemQuantity) - itemDiscount;
-        //                     totalAmount += itemTotal;
-
-        //                     cartContent += `
-        //             <div class="mb-2 d-flex align-items-center justify-content-between">
-        //                 <div>
-        //                     <h6 class="fw-medium">${item.name}</h6>
-        //                     <p class="fs-10">${item.duration || '30 Min'}</p>
-        //                 </div>
-        //                 <h6 class="fs-12 fw-medium">$${itemTotal.toFixed(2)}</h6>
-        //             </div>
-        //         `;
-        //                 });
-        //             } else {
-        //                 cartContent = '<p class="text-center">Your cart is empty.</p>';
-        //             }
-
-        //             $('.finalcart').html(cartContent);
-
-        //             let calculatedTax = totalAmount * 0.05;
-        //             let discountAmount = 20.00;
-
-        //             let finalAmount = totalAmount + calculatedTax - discountAmount;
-
-        //             $('.subtotal').html(`$${totalAmount.toFixed(2)}`);
-        //             $('.tax').html(`(+)$${calculatedTax.toFixed(2)}`);
-        //             $('.discount').html(`(-)$${discountAmount.toFixed(2)}`);
-        //             $('.grandtotal').html(`$${finalAmount.toFixed(2)}`);
-        //         }
-
-        //         setInterval(() => {
-        //             updateCart();
-        //         }, 500);
-
-        //     }
-
-        //     renderInvoice();
-        // });
     </script>
 
 

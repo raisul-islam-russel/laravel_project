@@ -59,21 +59,19 @@ class ProcessController extends Controller
 		$customer = new Customer();
 		$customer->first_name = $customer['firstName'];
 		$customer->last_name = $customer['lastName'];
-		// $customer->email = $customer->email;
-		// $customer->phone_number = $customer->phone_number;
-		// $customer->password = $customer->password;
-		// $customer->street_address = $customer->street_address;
-		// $customer->city = $customer->city;
-		// $customer->state = $customer->state;
-		// $customer->postal_code = $customer->postal_code;
-		// $customer->profile_picture = $customer->profile_picture;
-		// $customer->booking_notes = $customer->booking_notes;
-		// date_default_timezone_set("Asia/Dhaka");
-		// $customer->created_at = date('Y-m-d H:i:s');
-		// date_default_timezone_set("Asia/Dhaka");
-		// $customer->updated_at = date('Y-m-d H:i:s');
+		$customer->email = $customer['email'];
+		$customer->phone_number = $customer['phone'];
+		$customer->street_address = $customer['streetAddress'];
+		$customer->city = $customer['city'];
+		$customer->state = $customer['state'];
+		$customer->postal_code = $customer['postalCode'];
+		$customer->booking_notes = $customer['bookingNotes'];
+		date_default_timezone_set("Asia/Dhaka");
+		$customer->created_at = date('Y-m-d H:i:s');
+		date_default_timezone_set("Asia/Dhaka");
+		$customer->updated_at = date('Y-m-d H:i:s');
 
-		// $customer->save();
+		$customer->save();
 
 		// $customer_id = $customer->id;
 	

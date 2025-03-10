@@ -250,7 +250,9 @@
                                                     </label>
                                                 </div>
                                                 <div class="d-flex align-items-center">
-                                                    <a href="javascript:void(0);" class="btn_check_out btn btn-sm btn-light d-inline-flex align-items-center "><i class="ti ti-arrow-left me-1"></i>Prev</a>
+                                                    <a href="javascript:void(0);"
+                                                        class="btn_check_out btn btn-sm btn-light d-inline-flex align-items-center "><i
+                                                            class="ti ti-arrow-left me-1"></i>Prev</a>
                                                     <a href="javascript:void(0);"
                                                         class="btn btn-sm btn-dark d-inline-flex align-items-center next_btn btn_check">Next<i
                                                             class="ti ti-arrow-right ms-1"></i></a>
@@ -904,7 +906,8 @@
                                                             <div class="form-check d-flex align-items-center ps-0">
                                                                 <input class="form-check-input ms-0 mt-0"
                                                                     name="payment" type="radio" id="payment5">
-                                                                <label class="form-check-label ms-2" for="payment5">
+                                                                <label class="form-check-label ms-2 cod"
+                                                                    for="payment5">
                                                                     Cash On Delivery
                                                                 </label>
                                                             </div>
@@ -1308,6 +1311,8 @@
                     state: $('#state').val(),
                     postalCode: $('#postalCode').val(),
                     bookingNotes: $('#bookingNotes').val()
+
+
                 };
                 localStorage.setItem(formDataKey, JSON.stringify(formData));
             }
@@ -1329,7 +1334,9 @@
                 $('#state').val(savedData.state || '');
                 $('#postalCode').val(savedData.postalCode || '');
                 $('#bookingNotes').val(savedData.bookingNotes || '');
+
             }
+
 
             /**
              * Initialize UI by loading stored data
@@ -1417,6 +1424,7 @@
                     $('#discount-amount').html(`(-)${manualDiscount.toFixed(2)}`);
                     $('.discount-amount').html(`(-)${manualDiscount.toFixed(2)}`);
                     $('.grandtotal').html(`${finalTotal.toFixed(2)}`);
+
                 }
 
                 setInterval(() => {
@@ -1483,6 +1491,7 @@
 
 
         });
+
     </script>
 
 

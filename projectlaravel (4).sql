@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2025 at 08:09 AM
+-- Generation Time: Mar 10, 2025 at 06:12 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,28 +24,106 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `additional_services`
+--
+
+CREATE TABLE `additional_services` (
+  `id` int(11) NOT NULL,
+  `service_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text DEFAULT NULL,
+  `price` float NOT NULL,
+  `image_url` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `additional_services`
+--
+
+INSERT INTO `additional_services` (`id`, `service_id`, `name`, `description`, `price`, `image_url`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Extra Stain Removal', 'Additional deep cleaning for stubborn stains.', 500, 'addservice-01.jpg', '2025-02-27 03:52:19', '2025-02-27 04:04:46'),
+(2, 1, 'Deodorizing Treatment', 'Eliminates odors from surfaces and carpets.', 700, 'addservice-02.jpg', '2025-02-27 03:52:19', '2025-02-27 04:04:55'),
+(3, 2, 'Additional Lighting Setup', 'Installation of extra light fixtures.', 1200, 'addservice-03.jpg', '2025-02-27 03:52:19', '2025-02-27 04:05:03'),
+(4, 2, 'Smart Home Integration', 'Connecting lighting to smart home devices.', 2500, 'addservice-04.jpg', '2025-02-27 03:52:19', '2025-02-27 04:05:10'),
+(5, 3, 'High-Pressure Cleaning', 'High-pressure washing for outdoor surfaces.', 1800, 'addservice-05.jpg', '2025-02-27 03:52:19', '2025-02-27 04:05:18'),
+(6, 3, 'Window Cleaning', 'Professional glass and window cleaning.', 800, 'rated-service-01.jpg', '2025-02-27 03:52:19', '2025-02-27 04:06:03'),
+(7, 4, 'Leak Detection', 'Advanced leak detection service using sensors.', 2000, 'rated-service-02.jpg', '2025-02-27 03:52:19', '2025-02-27 04:06:10'),
+(8, 4, 'Waterproofing', 'Waterproofing of pipes and fixtures.', 3500, 'rated-service-03.jpg', '2025-02-27 03:52:19', '2025-02-27 04:06:17'),
+(9, 5, 'Extended Warranty', 'Additional service warranty for repairs.', 1000, 'rated-service-04.jpg', '2025-02-27 03:52:19', '2025-02-27 04:06:24'),
+(10, 5, 'Eco-Friendly Materials', 'Use of eco-friendly materials for cleaning.', 500, 'rated-service-05.jpg', '2025-02-27 03:52:19', '2025-02-27 04:06:32'),
+(11, 6, 'Pest Prevention Treatment', 'Preventative measures for pest infestations.', 4000, 'rated-service-06.jpg', '2025-02-27 03:52:19', '2025-02-27 04:06:38'),
+(12, 6, 'Odor Neutralization', 'Specialized treatment to remove bad odors.', 1500, 'rated-service-07.jpg', '2025-02-27 03:52:19', '2025-02-27 04:06:45'),
+(13, 7, 'Ceiling Patch Repair', 'Fixing small cracks and holes in ceilings.', 1800, 'rated-service-08.jpg', '2025-02-27 03:52:19', '2025-02-27 04:06:52'),
+(14, 7, 'Wall Repainting', 'Painting over repaired walls and ceilings.', 2200, 'rated-service-09.jpg', '2025-02-27 03:52:19', '2025-02-27 04:07:00'),
+(15, 8, 'Advanced Mold Removal', 'Deep mold treatment and prevention.', 2800, 'rated-service-10.jpg', '2025-02-27 03:52:19', '2025-02-27 04:07:07'),
+(16, 8, 'Air Quality Testing', 'Testing air quality after mold removal.', 3500, 'rated-service-11.jpg', '2025-02-27 03:52:19', '2025-02-27 04:07:13'),
+(17, 9, 'Furniture Polishing', 'Restoring shine to wooden furniture.', 2000, 'rated-service-12.jpg', '2025-02-27 03:52:19', '2025-02-27 04:07:22'),
+(18, 9, 'Fabric Protection', 'Applying fabric protectors to furniture.', 2500, 'rated-service-13.jpg', '2025-02-27 03:52:19', '2025-02-27 04:07:37'),
+(19, 10, 'Advanced Security Setup', 'Installation of extra locks and alarms.', 4000, 'rated-service-14.jpg', '2025-02-27 03:52:19', '2025-02-27 04:07:44'),
+(20, 10, 'Remote Monitoring', 'Setup for remote security monitoring.', 5000, 'rated-service-15.jpg', '2025-02-27 03:52:19', '2025-02-27 04:07:52');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `bookings`
 --
 
 CREATE TABLE `bookings` (
   `id` bigint(20) NOT NULL,
-  `customer_id` bigint(20) NOT NULL,
-  `provider_id` bigint(20) NOT NULL,
-  `service_id` bigint(20) NOT NULL,
-  `status_id` bigint(20) NOT NULL,
-  `scheduled_time` datetime NOT NULL,
-  `price` float NOT NULL,
-  `payment_status_id` bigint(20) NOT NULL
+  `customer_id` bigint(20) DEFAULT NULL,
+  `provider_id` bigint(20) DEFAULT NULL,
+  `service_id` bigint(20) DEFAULT NULL,
+  `status_id` bigint(20) DEFAULT NULL,
+  `scheduled_time` varchar(100) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `payment_status_id` bigint(20) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`id`, `customer_id`, `provider_id`, `service_id`, `status_id`, `scheduled_time`, `price`, `payment_status_id`) VALUES
-(1, 1, 2, 1, 1, '2025-02-15 10:00:00', 500, 1),
-(2, 2, 3, 2, 2, '2025-02-16 15:00:00', 800, 1),
-(3, 1, 2, 3, 3, '2025-02-14 09:30:00', 1500, 2);
+INSERT INTO `bookings` (`id`, `customer_id`, `provider_id`, `service_id`, `status_id`, `scheduled_time`, `price`, `payment_status_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 2, 1, 1, '2025-02-15 10:00:00', 500, 1, NULL, NULL),
+(2, 2, 3, 2, 2, '2025-02-16 15:00:00', 800, 1, NULL, NULL),
+(3, 1, 2, 3, 3, '2025-02-14 09:30:00', 1500, 2, NULL, NULL),
+(4, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2025-03-10 10:39:07', '2025-03-10 10:39:07'),
+(5, 1, 2, NULL, NULL, NULL, NULL, NULL, '2025-03-10 10:39:21', '2025-03-10 10:39:21'),
+(6, 1, 2, 1, NULL, NULL, NULL, NULL, '2025-03-10 10:39:29', '2025-03-10 10:39:29'),
+(7, 1, 2, 1, 1, '09:00 - 09:30', NULL, NULL, '2025-03-10 10:43:58', '2025-03-10 10:43:58'),
+(8, 1, 2, 1, 1, '09:00 - 09:30', 3000, 1, '2025-03-10 10:44:10', '2025-03-10 10:44:10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking_details`
+--
+
+CREATE TABLE `booking_details` (
+  `id` int(11) NOT NULL,
+  `booking_id` int(11) NOT NULL,
+  `service_id` int(11) NOT NULL,
+  `additional_service_id` int(11) DEFAULT NULL,
+  `quantity` int(11) DEFAULT 1,
+  `booking_notes` text DEFAULT NULL,
+  `price` float NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `booking_details`
+--
+
+INSERT INTO `booking_details` (`id`, `booking_id`, `service_id`, `additional_service_id`, `quantity`, `booking_notes`, `price`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 5, 1, '', 1800, '2025-03-10 04:54:04', '2025-03-10 04:54:04'),
+(2, 1, 1, 4, 1, '', 2500, '2025-03-10 04:54:04', '2025-03-10 04:54:04'),
+(3, 1, 10, 1, 1, '', 500, '2025-03-10 05:03:05', '2025-03-10 05:03:05'),
+(4, 1, 10, 3, 1, '', 1200, '2025-03-10 05:03:05', '2025-03-10 05:03:05');
 
 -- --------------------------------------------------------
 
@@ -121,6 +199,9 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `description`, `image_url`) VALUES
+(1, 'Plumbing', 'Pipe fitting, leakage repair, and installation services.', 'plumbing.jpg'),
+(2, 'Cleaning', 'Home and office cleaning services.', 'cleaning.jpg'),
+(3, 'Roofing', 'Roof installation, repair, and maintenance.', 'roofing.jpg'),
 (4, 'Plumbing', 'Pipe fitting, leakage repair, and installation services.', 'plumbing.jpg'),
 (5, 'Electrical', 'Wiring, lighting, appliance repair, and maintenance.', 'electrical.jpg'),
 (6, 'Cleaning', 'Home and office cleaning services.', 'cleaning.jpg'),
@@ -150,42 +231,47 @@ INSERT INTO `categories` (`id`, `name`, `description`, `image_url`) VALUES
 
 CREATE TABLE `customers` (
   `id` bigint(20) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `phone_number` varchar(15) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `address` text DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone_number` varchar(15) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `street_address` text DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `postal_code` int(10) DEFAULT NULL,
   `profile_picture` varchar(255) DEFAULT NULL,
-  `location` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `booking_notes` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `name`, `email`, `phone_number`, `password`, `address`, `profile_picture`, `location`, `created_at`, `updated_at`) VALUES
-(1, 'Rahim Mia', 'rahim@gmail.com', '01810000201', 'password_hash', 'Dhaka, Bangladesh', NULL, 'Dhaka', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(2, 'Karim Ali', 'karim@gmail.com', '01810000202', 'password_hash', 'Chittagong, Bangladesh', NULL, 'Chittagong', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(3, 'Sadia Rahman', 'sadia@gmail.com', '01810000203', 'password_hash', 'Sylhet, Bangladesh', NULL, 'Sylhet', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(4, 'Nasir Uddin', 'nasir@gmail.com', '01810000204', 'password_hash', 'Khulna, Bangladesh', NULL, 'Khulna', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(5, 'Mizan Hossain', 'mizan@gmail.com', '01810000205', 'password_hash', 'Rajshahi, Bangladesh', NULL, 'Rajshahi', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(6, 'Farhana Akter', 'farhana@gmail.com', '01810000206', 'password_hash', 'Barishal, Bangladesh', NULL, 'Barishal', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(7, 'Tanvir Ahmed', 'tanvir@gmail.com', '01810000207', 'password_hash', 'Dhaka, Bangladesh', NULL, 'Dhaka', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(8, 'Afsana Jahan', 'afsana@gmail.com', '01810000208', 'password_hash', 'Chittagong, Bangladesh', NULL, 'Chittagong', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(9, 'Sabbir Hossain', 'sabbir@gmail.com', '01810000209', 'password_hash', 'Sylhet, Bangladesh', NULL, 'Sylhet', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(10, 'Mahir Hasan', 'mahir@gmail.com', '01810000210', 'password_hash', 'Khulna, Bangladesh', NULL, 'Khulna', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(11, 'Jannatul Ferdous', 'jannatul@gmail.com', '01810000211', 'password_hash', 'Rajshahi, Bangladesh', NULL, 'Rajshahi', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(12, 'Arman Chowdhury', 'arman@gmail.com', '01810000212', 'password_hash', 'Barishal, Bangladesh', NULL, 'Barishal', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(13, 'Mehedi Hasan', 'mehedi@gmail.com', '01810000213', 'password_hash', 'Dhaka, Bangladesh', NULL, 'Dhaka', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(14, 'Shamim Reza', 'shamim@gmail.com', '01810000214', 'password_hash', 'Chittagong, Bangladesh', NULL, 'Chittagong', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(15, 'Sumaiya Akter', 'sumaiya@gmail.com', '01810000215', 'password_hash', 'Sylhet, Bangladesh', NULL, 'Sylhet', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(16, 'Fahim Rahman', 'fahim@gmail.com', '01810000216', 'password_hash', 'Khulna, Bangladesh', NULL, 'Khulna', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(17, 'Sharmin Akhter', 'sharmin@gmail.com', '01810000217', 'password_hash', 'Rajshahi, Bangladesh', NULL, 'Rajshahi', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(18, 'Tareq Mahmud', 'tareq@gmail.com', '01810000218', 'password_hash', 'Barishal, Bangladesh', NULL, 'Barishal', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(19, 'Lamia Noor', 'lamia@gmail.com', '01810000219', 'password_hash', 'Dhaka, Bangladesh', NULL, 'Dhaka', '2025-02-24 06:22:25', '2025-02-24 06:22:25'),
-(20, 'Jahid Hasan', 'jahid@gmail.com', '01810000220', 'password_hash', 'Chittagong, Bangladesh', NULL, 'Chittagong', '2025-02-24 06:22:25', '2025-02-24 06:22:25');
+INSERT INTO `customers` (`id`, `first_name`, `last_name`, `email`, `phone_number`, `password`, `street_address`, `city`, `state`, `postal_code`, `profile_picture`, `booking_notes`, `created_at`, `updated_at`) VALUES
+(1, 'Rahim Mia', '', 'rahim@gmail.com', '01810000201', 'password_hash', 'Dhaka, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(2, 'Karim Ali', '', 'karim@gmail.com', '01810000202', 'password_hash', 'Chittagong, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(3, 'Sadia Rahman', '', 'sadia@gmail.com', '01810000203', 'password_hash', 'Sylhet, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(4, 'Nasir Uddin', '', 'nasir@gmail.com', '01810000204', 'password_hash', 'Khulna, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(5, 'Mizan Hossain', '', 'mizan@gmail.com', '01810000205', 'password_hash', 'Rajshahi, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(6, 'Farhana Akter', '', 'farhana@gmail.com', '01810000206', 'password_hash', 'Barishal, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(7, 'Tanvir Ahmed', '', 'tanvir@gmail.com', '01810000207', 'password_hash', 'Dhaka, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(8, 'Afsana Jahan', '', 'afsana@gmail.com', '01810000208', 'password_hash', 'Chittagong, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(9, 'Sabbir Hossain', '', 'sabbir@gmail.com', '01810000209', 'password_hash', 'Sylhet, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(10, 'Mahir Hasan', '', 'mahir@gmail.com', '01810000210', 'password_hash', 'Khulna, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(11, 'Jannatul Ferdous', '', 'jannatul@gmail.com', '01810000211', 'password_hash', 'Rajshahi, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(12, 'Arman Chowdhury', '', 'arman@gmail.com', '01810000212', 'password_hash', 'Barishal, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(13, 'Mehedi Hasan', '', 'mehedi@gmail.com', '01810000213', 'password_hash', 'Dhaka, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(14, 'Shamim Reza', '', 'shamim@gmail.com', '01810000214', 'password_hash', 'Chittagong, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(15, 'Sumaiya Akter', '', 'sumaiya@gmail.com', '01810000215', 'password_hash', 'Sylhet, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(16, 'Fahim Rahman', '', 'fahim@gmail.com', '01810000216', 'password_hash', 'Khulna, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(17, 'Sharmin Akhter', '', 'sharmin@gmail.com', '01810000217', 'password_hash', 'Rajshahi, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(18, 'Tareq Mahmud', '', 'tareq@gmail.com', '01810000218', 'password_hash', 'Barishal, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(19, 'Lamia Noor', '', 'lamia@gmail.com', '01810000219', 'password_hash', 'Dhaka, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(20, 'Jahid Hasan', '', 'jahid@gmail.com', '01810000220', 'password_hash', 'Chittagong, Bangladesh', '', '', 0, NULL, '', '2025-02-24 12:22:25', '2025-02-24 12:22:25'),
+(23, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-03-10 04:19:27', '2025-03-10 04:19:27');
 
 -- --------------------------------------------------------
 
@@ -243,8 +329,8 @@ CREATE TABLE `payment_methods` (
 INSERT INTO `payment_methods` (`id`, `name`) VALUES
 (1, 'bKash'),
 (4, 'Card'),
-(2, 'Nagad'),
-(3, 'Rocket');
+(3, 'cod'),
+(2, 'Nagad');
 
 -- --------------------------------------------------------
 
@@ -278,6 +364,7 @@ CREATE TABLE `providers` (
   `business_name` varchar(255) NOT NULL,
   `business_description` text DEFAULT NULL,
   `address` text DEFAULT NULL,
+  `provider_img` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
@@ -286,27 +373,27 @@ CREATE TABLE `providers` (
 -- Dumping data for table `providers`
 --
 
-INSERT INTO `providers` (`id`, `user_id`, `business_name`, `business_description`, `address`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Plumber Pro Services', 'Expert plumbing services for homes and offices.', '123 Water St, Dhaka, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(2, 3, 'Electrician Hub', 'Professional electrical wiring and repair services.', '45 Power Lane, Chittagong, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(3, 4, 'Home Cleaning Masters', 'Reliable and eco-friendly home cleaning services.', '67 Clean St, Sylhet, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(4, 5, 'Carpentry Works', 'Custom furniture and woodwork for residential and commercial clients.', '89 Wood Ave, Khulna, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(5, 6, 'AC Repair Experts', 'Air conditioning installation and maintenance services.', '22 Cooling Rd, Rajshahi, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(6, 7, 'Auto Mechanic Solutions', 'Car and bike repair services.', '12 Engine Rd, Dhaka, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(7, 8, 'Lawn Care Pros', 'Lawn mowing and garden maintenance.', '5 Green Park, Sylhet, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(8, 9, 'Pest Control Experts', 'Professional pest extermination services.', '42 Bug-Free Lane, Barisal, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(9, 10, 'Roofing Specialists', 'Roof repair and waterproofing services.', '88 Roof Rd, Comilla, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(10, 11, 'Interior Designers', 'Modern home and office interior designing.', '76 Decor St, Rangpur, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(11, 12, 'IT Support & Networking', 'Computer repair and networking services.', '99 Tech Lane, Dhaka, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(12, 13, 'Security Solutions', 'CCTV installation and security services.', '23 Safe St, Chittagong, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(13, 14, 'Event Management', 'Event planning and management services.', '54 Party Rd, Sylhet, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(14, 15, 'Handyman Services', 'General repair and maintenance work.', '31 Fix-It St, Barisal, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(15, 16, 'Glass & Mirror Experts', 'Glass cutting and mirror installation services.', '77 Reflection Rd, Khulna, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(16, 17, 'Moving & Shifting', 'House and office relocation services.', '19 Transport St, Rajshahi, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(17, 18, 'Solar Panel Installers', 'Renewable energy solutions and solar panel installation.', '35 Sunlight Rd, Dhaka, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(18, 19, 'Swimming Pool Services', 'Pool cleaning and maintenance.', '81 Water St, Sylhet, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(19, 20, 'Geyser Repair & Installation', 'Geyser maintenance and installation.', '28 Heat Rd, Chittagong, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25'),
-(20, 21, 'Painting Services', 'House and office painting services.', '66 Color St, Khulna, Bangladesh', '2025-02-24 06:27:25', '2025-02-24 06:27:25');
+INSERT INTO `providers` (`id`, `user_id`, `business_name`, `business_description`, `address`, `provider_img`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Plumber Pro Services', 'Expert plumbing services for homes and offices.', '123 Water St, Dhaka, Bangladesh', 'provider-01.jpg', '2025-02-24 06:27:25', '2025-02-26 04:00:22'),
+(2, 3, 'Electrician Hub', 'Professional electrical wiring and repair services.', '45 Power Lane, Chittagong, Bangladesh', 'provider-02.jpg', '2025-02-24 06:27:25', '2025-02-26 04:00:32'),
+(3, 4, 'Home Cleaning Masters', 'Reliable and eco-friendly home cleaning services.', '67 Clean St, Sylhet, Bangladesh', 'provider-03.jpg', '2025-02-24 06:27:25', '2025-02-26 04:00:40'),
+(4, 5, 'Carpentry Works', 'Custom furniture and woodwork for residential and commercial clients.', '89 Wood Ave, Khulna, Bangladesh', 'provider-04.jpg', '2025-02-24 06:27:25', '2025-02-26 04:00:48'),
+(5, 6, 'AC Repair Experts', 'Air conditioning installation and maintenance services.', '22 Cooling Rd, Rajshahi, Bangladesh', 'provider-05.jpg', '2025-02-24 06:27:25', '2025-02-26 04:01:26'),
+(6, 7, 'Auto Mechanic Solutions', 'Car and bike repair services.', '12 Engine Rd, Dhaka, Bangladesh', 'provider-06.jpg', '2025-02-24 06:27:25', '2025-02-26 04:01:38'),
+(7, 8, 'Lawn Care Pros', 'Lawn mowing and garden maintenance.', '5 Green Park, Sylhet, Bangladesh', 'provider-07.jpg', '2025-02-24 06:27:25', '2025-02-26 04:01:46'),
+(8, 9, 'Pest Control Experts', 'Professional pest extermination services.', '42 Bug-Free Lane, Barisal, Bangladesh', 'provider-08.jpg', '2025-02-24 06:27:25', '2025-02-26 04:01:54'),
+(9, 10, 'Roofing Specialists', 'Roof repair and waterproofing services.', '88 Roof Rd, Comilla, Bangladesh', 'provider-09.jpg', '2025-02-24 06:27:25', '2025-02-26 04:02:02'),
+(10, 11, 'Interior Designers', 'Modern home and office interior designing.', '76 Decor St, Rangpur, Bangladesh', 'provider-10.jpg', '2025-02-24 06:27:25', '2025-02-26 04:02:09'),
+(11, 12, 'IT Support & Networking', 'Computer repair and networking services.', '99 Tech Lane, Dhaka, Bangladesh', 'provider-11.jpg', '2025-02-24 06:27:25', '2025-02-26 04:02:17'),
+(12, 13, 'Security Solutions', 'CCTV installation and security services.', '23 Safe St, Chittagong, Bangladesh', 'provider-12.jpg', '2025-02-24 06:27:25', '2025-02-26 04:02:25'),
+(13, 14, 'Event Management', 'Event planning and management services.', '54 Party Rd, Sylhet, Bangladesh', 'provider-13.jpg', '2025-02-24 06:27:25', '2025-02-26 04:02:33'),
+(14, 15, 'Handyman Services', 'General repair and maintenance work.', '31 Fix-It St, Barisal, Bangladesh', 'provider-14.jpg', '2025-02-24 06:27:25', '2025-02-26 04:02:43'),
+(15, 16, 'Glass & Mirror Experts', 'Glass cutting and mirror installation services.', '77 Reflection Rd, Khulna, Bangladesh', 'provider-15.jpg', '2025-02-24 06:27:25', '2025-02-26 04:02:51'),
+(16, 17, 'Moving & Shifting', 'House and office relocation services.', '19 Transport St, Rajshahi, Bangladesh', 'provider-16.jpg', '2025-02-24 06:27:25', '2025-02-26 04:03:01'),
+(17, 18, 'Solar Panel Installers', 'Renewable energy solutions and solar panel installation.', '35 Sunlight Rd, Dhaka, Bangladesh', 'provider-17.jpg', '2025-02-24 06:27:25', '2025-02-26 04:03:06'),
+(18, 19, 'Swimming Pool Services', 'Pool cleaning and maintenance.', '81 Water St, Sylhet, Bangladesh', 'provider-18.jpg', '2025-02-24 06:27:25', '2025-02-26 04:03:13'),
+(19, 20, 'Geyser Repair & Installation', 'Geyser maintenance and installation.', '28 Heat Rd, Chittagong, Bangladesh', 'provider-19.jpg', '2025-02-24 06:27:25', '2025-02-26 04:03:22'),
+(20, 21, 'Painting Services', 'House and office painting services.', '66 Color St, Khulna, Bangladesh', 'provider-20.jpg', '2025-02-24 06:27:25', '2025-02-26 04:03:29');
 
 -- --------------------------------------------------------
 
@@ -368,6 +455,8 @@ CREATE TABLE `services` (
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `price` float NOT NULL,
+  `service_img` varchar(255) DEFAULT NULL,
+  `provider_img` varchar(255) NOT NULL,
   `status_id` bigint(20) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -377,27 +466,27 @@ CREATE TABLE `services` (
 -- Dumping data for table `services`
 --
 
-INSERT INTO `services` (`id`, `category_id`, `sub_category_id`, `provider_id`, `title`, `description`, `price`, `status_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, 'Pipe Leak Repair', 'Fixing water leaks in homes and offices.', 500, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(2, 1, 2, 1, 'Toilet Installation', 'Professional installation of new toilets.', 1500, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(3, 2, 3, 2, 'Ceiling Fan Installation', 'Safe and efficient fan installation.', 800, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(4, 2, 4, 2, 'Wiring Repair', 'Fixing damaged or faulty electrical wiring.', 1200, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(5, 3, 5, 3, 'House Deep Cleaning', 'Comprehensive cleaning for homes.', 2000, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(6, 3, 6, 3, 'Office Cleaning', 'Professional office cleaning services.', 3000, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(7, 4, 7, 4, 'Furniture Repair', 'Fixing broken wooden furniture.', 2500, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(8, 4, 8, 4, 'Custom Wardrobe Design', 'Design and installation of wardrobes.', 7000, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(9, 5, 9, 5, 'AC Gas Refill', 'Refilling gas for air conditioners.', 1500, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(10, 5, 10, 5, 'AC Installation', 'Full AC installation with setup.', 5000, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(11, 6, 11, 6, 'Car Engine Repair', 'Complete engine diagnostics and repair.', 10000, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(12, 6, 12, 6, 'Brake Replacement', 'Brake pad and rotor replacement.', 4000, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(13, 7, 13, 7, 'Lawn Mowing', 'Trimming and maintaining lawns.', 1200, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(14, 7, 14, 7, 'Garden Landscaping', 'Complete landscape design and maintenance.', 8000, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(15, 8, 15, 8, 'Pest Control', 'Exterminating insects and rodents.', 2500, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(16, 8, 16, 8, 'Termite Treatment', 'Protecting wooden structures from termites.', 3000, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(17, 9, 17, 9, 'Roof Waterproofing', 'Preventing leaks and water damage.', 5000, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(18, 9, 18, 9, 'Roof Tile Repair', 'Replacing and fixing broken roof tiles.', 6000, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(19, 10, 19, 10, 'Interior Painting', 'High-quality wall painting for homes.', 4500, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
-(20, 10, 20, 10, 'Exterior Painting', 'Weather-resistant painting for buildings.', 7000, 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43');
+INSERT INTO `services` (`id`, `category_id`, `sub_category_id`, `provider_id`, `title`, `description`, `price`, `service_img`, `provider_img`, `status_id`, `created_at`, `updated_at`) VALUES
+(1, 1, NULL, 1, 'Pipe Leak Repair BD', 'Fixing water leaks in homes and offices.', 500, 'service-01.jpg', 'provider-01.jpg', 1, '2025-02-25 04:26:56', '2025-02-25 04:26:56'),
+(2, 1, 2, 1, 'Toilet Installation', 'Professional installation of new toilets.', 1500, 'service-02.jpg', 'provider-02.jpg', 1, '2025-02-24 06:28:43', '2025-02-25 04:04:27'),
+(3, 2, 3, 2, 'Ceiling Fan Installation', 'Safe and efficient fan installation.', 800, 'service-03.jpg', 'provider-03.jpg', 1, '2025-02-24 06:28:43', '2025-02-25 04:04:18'),
+(4, 2, 4, 2, 'Wiring Repair', 'Fixing damaged or faulty electrical wiring.', 1200, 'service-01.jpg', 'provider-04.jpg', 1, '2025-02-24 06:28:43', '2025-02-25 04:00:03'),
+(5, 3, 5, 3, 'House Deep Cleaning', 'Comprehensive cleaning for homes.', 2000, 'service-05.jpg', 'provider-05.jpg', 1, '2025-02-24 06:28:43', '2025-02-25 04:05:54'),
+(6, 3, 6, 3, 'Office Cleaning', 'Professional office cleaning services.', 3000, 'service-06.jpg', 'provider-06.jpg', 1, '2025-02-24 06:28:43', '2025-02-25 04:06:06'),
+(7, 4, 7, 4, 'Furniture Repair', 'Fixing broken wooden furniture.', 2500, 'service-07.jpg', 'provider-07.jpg', 1, '2025-02-24 06:28:43', '2025-02-25 04:06:23'),
+(8, 4, 8, 4, 'Custom Wardrobe Design', 'Design and installation of wardrobes.', 7000, 'service-08.jpg', 'provider-08.jpg', 1, '2025-02-24 06:28:43', '2025-02-25 04:06:30'),
+(9, 5, 9, 5, 'AC Gas Refill', 'Refilling gas for air conditioners.', 1500, 'service-09.jpg', 'provider-09.jpg', 1, '2025-02-24 06:28:43', '2025-02-25 04:06:36'),
+(10, 5, 10, 5, 'AC Installation', 'Full AC installation with setup.', 5000, 'service-10.jpg', 'provider-10.jpg', 1, '2025-02-24 06:28:43', '2025-02-25 04:06:43'),
+(11, 6, 11, 6, 'Car Engine Repair', 'Complete engine diagnostics and repair.', 10000, 'service-11.jpg', 'provider-11.jpg', 1, '2025-02-24 06:28:43', '2025-02-25 04:06:53'),
+(12, 6, 12, 6, 'Brake Replacement', 'Brake pad and rotor replacement.', 4000, 'service-12.jpg', 'provider-12.jpg', 1, '2025-02-24 06:28:43', '2025-02-25 04:07:03'),
+(13, 7, 13, 7, 'Lawn Mowing', 'Trimming and maintaining lawns.', 1200, '', '', 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
+(14, 7, 14, 7, 'Garden Landscaping', 'Complete landscape design and maintenance.', 8000, '', '', 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
+(15, 8, 15, 8, 'Pest Control', 'Exterminating insects and rodents.', 2500, '', '', 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
+(16, 8, 16, 8, 'Termite Treatment', 'Protecting wooden structures from termites.', 3000, '', '', 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
+(17, 9, 17, 9, 'Roof Waterproofing', 'Preventing leaks and water damage.', 5000, '', '', 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
+(18, 9, 18, 9, 'Roof Tile Repair', 'Replacing and fixing broken roof tiles.', 6000, '', '', 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
+(19, 10, 19, 10, 'Interior Painting', 'High-quality wall painting for homes.', 4500, '', '', 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43'),
+(20, 10, 20, 10, 'Exterior Painting', 'Weather-resistant painting for buildings.', 7000, '', '', 1, '2025-02-24 06:28:43', '2025-02-24 06:28:43');
 
 -- --------------------------------------------------------
 
@@ -504,14 +593,51 @@ INSERT INTO `sub_categories` (`id`, `category_id`, `name`, `description`, `price
 (19, 1, 'Drainage System Cleaning', 'Cleaning and maintenance of drainage systems.', 1900, 'drainage_cleaning.jpg'),
 (20, 2, 'Home Theater Wiring', 'Setting up audio-video wiring for home theaters.', 3500, 'home_theater_wiring.jpg');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone_number` varchar(15) DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` varchar(50) DEFAULT NULL,
+  `profile_picture` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `phone_number`, `password`, `role`, `profile_picture`, `created_at`, `updated_at`) VALUES
+(1, 'Raisul Islam', 'raisulraat7@gmail.com', NULL, '$2y$12$Yg.MXfOpDugisok2AkWrN.vvCw9/Jin.mXkSV8e.LUdMYalbJDcLW', NULL, NULL, '2025-02-24 21:10:49', '2025-02-24 21:10:49');
+
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `additional_services`
+--
+ALTER TABLE `additional_services`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `bookings`
 --
 ALTER TABLE `bookings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `booking_details`
+--
+ALTER TABLE `booking_details`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -618,14 +744,34 @@ ALTER TABLE `sub_categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `phone_number` (`phone_number`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `additional_services`
+--
+ALTER TABLE `additional_services`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `booking_details`
+--
+ALTER TABLE `booking_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `booking_status`
@@ -649,7 +795,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -716,6 +862,12 @@ ALTER TABLE `service_images`
 --
 ALTER TABLE `sub_categories`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

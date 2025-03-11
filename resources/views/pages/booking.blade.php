@@ -35,6 +35,114 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
+    <style>
+        
+        @media print {
+    /* Hide everything except the content to be printed */
+    body * {
+        visibility: hidden;
+    }
+
+    .printBookingInformation, .printBookingInformation * {
+        visibility: visible;
+    }
+
+    /* Set the page to start from the top, and prevent any margins/padding */
+    @page {
+        margin: 0;
+        size: auto; /* Auto size the content */
+    }
+
+    /* Make sure the content starts at the top */
+    .printBookingInformation {
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        background-color: transparent;
+        border: none;
+        position: relative;
+        top: 0;
+        left: 0;
+        overflow: visible;
+        max-width: 100%;
+    }
+
+    /* Ensure no margins or unwanted space at the bottom or top */
+    .printBookingInformation .card-body, .printBookingInformation .book-card, .printBookingInformation .booking-content {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Adjust card styling */
+    .printBookingInformation .card {
+        page-break-inside: avoid !important;
+        page-break-after: auto !important;
+    }
+
+    /* Fix any unwanted page breaks */
+    .printBookingInformation * {
+        page-break-inside: avoid !important;
+        page-break-before: auto !important;
+        page-break-after: avoid !important;
+    }
+
+    /* Avoid unnecessary breaks between sections */
+    .printBookingInformation .card-body, .printBookingInformation .book-card {
+        page-break-after: avoid !important;
+    }
+
+    /* Hide footer, header, or unnecessary elements */
+    .printBookingInformation .btn,
+    .printBookingInformation .btns,
+    .printBookingInformation .header,
+    .printBookingInformation .footer {
+        visibility: hidden !important;
+    }
+
+    /* Prevent multiple pages */
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .printBookingInformation {
+        max-width: 100%;
+        overflow: visible;
+    }
+
+    /* Ensure font size and content fit properly */
+    .printBookingInformation h6,
+    .printBookingInformation p {
+        font-size: 14px;
+        margin: 0;
+    }
+
+    /* Adjust layout for printing and remove page breaks */
+    .printBookingInformation .booking-content {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    /* Remove extra spaces between items that might push content to the next page */
+    .printBookingInformation .booking-content .card-body {
+        margin-top: 0 !important;
+    }
+
+    /* Ensure no page break on the first content card */
+    .printBookingInformation .booking-content .card {
+        page-break-before: avoid;
+    }
+    
+    /* Remove content overflow */
+    .printBookingInformation .book-card {
+        page-break-before: avoid;
+    }
+}
+
+        
+        
+    </style>
+
 
     <script src="{{asset('assets_front')}}/js/script.js" type="cddfb10be43f6301e69de11d-text/javascript"></script>
 </head>
@@ -58,7 +166,7 @@
                                 <div class="row">
 
                                     <!-- Booking Sidebar -->
-                                    <div class="col-lg-3 theiaStickySidebar mt-4">
+                                    <div class="col-lg-3 theiaStickySidebar mt-4 nonPrintable">
                                         <div class="card bg-dark booking-sidebar mb-4 mb-lg-0">
                                             <div class="card-body">
                                                 <h6 class="text-white fs-14 mb-2">Service Details</h6>
@@ -243,7 +351,7 @@
                                                 class="booking-footer d-flex align-items-center justify-content-between flex-wrap">
                                                 <div
                                                     class="form-check d-inline-flex align-items-center ps-0 me-3 mt-3">
-                                                    <input class="form-check-input ms-0 mt-0" name="service1"
+                                                    <input class="form-check-input payments ms-0 mt-0" name="service1"
                                                         type="checkbox" id="service" checked>
                                                     <label class="form-check-label ms-2 text-black" for="service">
                                                         Select Anyone for this Booking
@@ -829,6 +937,9 @@
 
                                         <!-- Payment Method -->
                                         <fieldset class="booking-content">
+
+
+
                                             <div class="book-card">
                                                 <div
                                                     class="d-flex align-items-center justify-content-between flex-wrap booking-title">
@@ -845,11 +956,14 @@
                                                 <div class="row g-3">
                                                     <div class="col-md-6">
                                                         <h6 class="fs-13 mb-3">Payment Types</h6>
+
+
                                                         <div
                                                             class="payment-item d-flex align-items-center justify-content-between mb-2">
                                                             <div class="form-check d-flex align-items-center ps-0">
-                                                                <input class="form-check-input ms-0 mt-0"
-                                                                    name="payment" type="radio" id="payment1">
+                                                                <input class="form-check-input payments ms-0 mt-0"
+                                                                    name="payment" value="Stripe" type="radio"
+                                                                    id="payment1">
                                                                 <label class="form-check-label ms-2" for="payment1">
                                                                     Stripe
                                                                 </label>
@@ -862,8 +976,9 @@
                                                         <div
                                                             class="payment-item d-flex align-items-center justify-content-between mb-2">
                                                             <div class="form-check d-flex align-items-center ps-0">
-                                                                <input class="form-check-input ms-0 mt-0"
-                                                                    name="payment" type="radio" id="payment2">
+                                                                <input class="form-check-input payments ms-0 mt-0"
+                                                                    name="payment" value="Paypal" type="radio"
+                                                                    id="payment2">
                                                                 <label class="form-check-label ms-2" for="payment2">
                                                                     Paypal
                                                                 </label>
@@ -876,8 +991,9 @@
                                                         <div
                                                             class="payment-item d-flex align-items-center justify-content-between mb-2">
                                                             <div class="form-check d-flex align-items-center ps-0">
-                                                                <input class="form-check-input ms-0 mt-0"
-                                                                    name="payment" type="radio" id="payment3">
+                                                                <input class="form-check-input payments ms-0 mt-0"
+                                                                    name="payment" value="Razorpay" type="radio"
+                                                                    id="payment3">
                                                                 <label class="form-check-label ms-2" for="payment3">
                                                                     Razorpay
                                                                 </label>
@@ -890,8 +1006,9 @@
                                                         <div
                                                             class="payment-item d-flex align-items-center justify-content-between mb-2">
                                                             <div class="form-check d-flex align-items-center ps-0">
-                                                                <input class="form-check-input ms-0 mt-0"
-                                                                    name="payment" type="radio" id="payment4">
+                                                                <input class="form-check-input  payments ms-0 mt-0"
+                                                                    name="payment" type="radio" value="PaySolution"
+                                                                    id="payment4">
                                                                 <label class="form-check-label ms-2" for="payment4">
                                                                     PaySolution
                                                                 </label>
@@ -904,8 +1021,9 @@
                                                         <div
                                                             class="payment-item d-flex align-items-center justify-content-between mb-0">
                                                             <div class="form-check d-flex align-items-center ps-0">
-                                                                <input class="form-check-input ms-0 mt-0"
-                                                                    name="payment" type="radio" id="payment5">
+                                                                <input class="form-check-input payments ms-0 mt-0"
+                                                                    name="payment" value="Cash On Delivery"
+                                                                    type="radio" id="payment5">
                                                                 <label class="form-check-label ms-2 cod"
                                                                     for="payment5">
                                                                     Cash On Delivery
@@ -919,8 +1037,9 @@
                                                         <div
                                                             class="payment-item d-flex align-items-center justify-content-between mb-0">
                                                             <div class="form-check d-flex align-items-center ps-0">
-                                                                <input class="form-check-input ms-0 mt-0"
-                                                                    name="payment" type="radio" id="payment5">
+                                                                <input class="form-check-input payments ms-0 mt-0"
+                                                                    name="payment" value="Square" type="radio"
+                                                                    id="payment5">
                                                                 <label class="form-check-label ms-2" for="payment5">
                                                                     Square
                                                                 </label>
@@ -1007,9 +1126,9 @@
                                         <!-- /Payment Method -->
 
                                         <!-- Confirmation -->
-                                        <fieldset class="booking-content">
+                                        <fieldset class="booking-content printBookingInformation">
                                             <div class="book-card">
-                                                <h6 class="fs-16 me-2 mb-3">Payment Method</h6>
+                                                <h6 class="fs-16 me-2 mb-3 text-center">Booking Details</h6>
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <h6 class="fs-14 fw-medium mb-3">Your Booking is Successful on
@@ -1081,14 +1200,19 @@
                                                             </div>
                                                         </div>
                                                         <div
-                                                            class="d-flex align-items-center justify-content-center flex-wrap">
+                                                            class="d-flex align-items-center justify-content-center flex-wrap btns">
                                                             <a href="javascript:void(0);"
                                                                 class="btn btn-sm btn-info d-inline-flex align-items-center me-3 mt-3"><i
                                                                     class="ti ti-calendar me-1"></i>Add to Calendar</a>
                                                             <a href="booking.html"
-                                                                class="btn btn-sm btn-primary d-inline-flex align-items-center mt-3"><i
+                                                                class="btn btn-sm btn-primary d-inline-flex align-items-center me-3 mt-3"><i
                                                                     class="ti ti-circle-plus me-1"></i>Start New
                                                                 Booking</a>
+                                                            <a href="javascript:void(0);"
+                                                                class="btn btn-sm btn-primary d-inline-flex align-items-center mt-3"
+                                                                onclick="window.print();">
+                                                                <i class="ti ti-circle-plus me-1"></i> Print
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1313,6 +1437,7 @@
                     bookingNotes: $('#bookingNotes').val()
 
 
+
                 };
                 localStorage.setItem(formDataKey, JSON.stringify(formData));
             }
@@ -1335,6 +1460,7 @@
                 $('#postalCode').val(savedData.postalCode || '');
                 $('#bookingNotes').val(savedData.bookingNotes || '');
 
+
             }
 
 
@@ -1354,6 +1480,7 @@
         });
 
         $(document).ready(function() {
+
 
             // Function to render the cart and update the total
             function finalrenderCart() {
@@ -1415,7 +1542,7 @@
 
                     let manualDiscount = parseFloat($('#manual-discount').val()) || 0;
 
-                    let finalTotal = total + tax - manualDiscount;
+                    var finalTotal = total + tax - manualDiscount;
 
                     // Update the values in the HTML
                     $('.subtotal').html(`${total.toFixed(2)}`);
@@ -1425,13 +1552,27 @@
                     $('.discount-amount').html(`(-)${manualDiscount.toFixed(2)}`);
                     $('.grandtotal').html(`${finalTotal.toFixed(2)}`);
 
+                    // let finalPrices = finalTotal;
+
+
+
+                    // console.log(finalPrices);
+                    // console.log(finalTotal);
+                    // alert(finalTotal);
+                    localStorage.setItem('totalPrice', finalTotal);
+
+
                 }
 
                 setInterval(() => {
                     renderCart();
                 }, 500);
 
+                // alert(finalTotal);
+
             }
+
+
 
             finalrenderCart();
 
@@ -1467,6 +1608,7 @@
                     selected_provider: selected_provider,
                     selected_datetime: selected_datetime,
                 }
+                let totalprices = localStorage.getItem('totalPrice');
 
                 $.ajax({
                     url: "{{ url('api/process_booking') }}",
@@ -1476,6 +1618,7 @@
                         form_data: form_data,
                         selected_provider: selected_provider,
                         selected_datetime: selected_datetime,
+                        total: totalprices,
                         _token: "{{ csrf_token() }}" // Pass CSRF token
                     },
                     success: function(res) {
@@ -1491,7 +1634,6 @@
 
 
         });
-
     </script>
 
 
